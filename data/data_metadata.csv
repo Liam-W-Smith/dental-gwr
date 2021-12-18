@@ -1,1 +1,6 @@
 file_path,file_name,format,sources,metadata,status,date_saved
+data/raw/public/extractions.csv, extractions, csv, Public Health England, data/metadata/extractions_metadata.pdf, acquire, 12/18/21
+data/raw/public/uk_census.csv, uk_census, csv, Social Explorer, data/metadata/uk_census_metadata.pdf, acquire, 12/18/21
+data/raw/private/local_authorities.gpkg, local_authorities, gpkg, UK Office for National Statistics, data/metadata/geometry_metadata.pdf, acquire, 12/18/21
+data/derived/public/dentistry.RDS, dentistry, RDS, Liam Smith, no metadata, derived, 12/18/21
+data/derived/public/gwr.map_adapt.RDS, gwr.map_adapt, RDS, Liam Smith, no metadata, derived, 12/18/21

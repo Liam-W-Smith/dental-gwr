@@ -1,1 +1,16 @@
 ﻿file_path,file_name,title,description,type,date
+results/figures/corrplot.png, corrplot.png, corrplot, illustrates correlations between variables, png, 12/18/21
+results/figures/linearity_check.png, linearity_check.png, linearity_check, scatterplots showing linearity, png, 12/18/21
+results/figures/residual_histogram.png, residual_histogram.png, residual_histogram, shows distribution of residuals, png, 12/18/21
+results/figures/residual_plot.png, residual_plot.png, residual_plot, reveals homoscedasticity for regression model, png, 12/18/21
+results/maps/actual-extractions.png, actual-extractions.png, actual-extractions, map of normalized extractions, png, 12/18/21
+results/maps/pct-children-coefficients.png, pct-children-coefficients.png, pct-children-coefficients, map of pctChild coefficients, png, 12/18/21
+results/maps/pct-children-sig.png, pct-children-sig.png, pct-children-sig, map of pctChild significance, png, 12/18/21
+results/maps/pct-disability-coefficients.png, pct-disability-coefficients.png, pct-disability-coefficients, map of pct disability coefficients, png, 12/18/21
+results/maps/pct-disability-sig.png, pct-disability-sig.png, pct-disability-sig, map of pct disability significance, png, 12/18/21
+results/maps/pct-foreign-coefficients.png, pct-foreign-coefficients.png, pct-foreign-coefficients, map of pct foreign coefficients, png, 12/18/21
+results/maps/pct-foreign-sig.png, pct-foreign-sig.png, pct-foreign-sig, map of pct foreign significance, png, 12/18/21
+results/maps/predicted-extractions.png, predicted-extractions.png, predicted-extractions, map of predicted extractions, png, 12/18/21
+results/maps/R-Squared.png, R-Squared.png, R-Squared, map of R-Squared values for GWR model, png, 12/18/21
+results/maps/unemployment-coefficients.png, unemployment-coefficients.png, unemployment-coefficients, map of unemployed rate coefficients, png, 12/18/21
+results/maps/unemployment-sig.png, unemployment-sig.png, unemployment-sig, map of unemployed rate significance, png, 12/18/21

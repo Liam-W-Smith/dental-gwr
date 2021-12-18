@@ -1,21 +1,17 @@
-# Title of Study
+# Dental GWR Replication
 
-> Insert names of the original authors in Kedron, P.J. format
+Smith, L.W.
 
 ## Abstract
 
-> Briefly describe the study. If the study is a reproduction or replication, the full citation of the original study should be included here with digital object identifier (DOI) to the study and, if applicable, any preregistration, code or data repositories. Delete this instruction from the final repository.
+This repository documents my replication of Broomhead et al's study, "National Patterns in Paediatric Hospital Admissions for Dental Extractions in England." Their original study applied Geographically Weighted Regression to analyze spatial patterns and predictors of dental extractions in children in the United Kingdom. Please see a citation of their original work below:
+
+Broomhead, T., Rodd, H. D., Baker, S. R., Jones, K., Davies, G., White, S., Wilcox, D., Allen, Z., & Marshman, Z. (2021). National patterns in paediatric hospital admissions for dental extractions in England. *Community Dentistry and Oral Epidemiology*, 49(4), 322–329. [https://doi.org/10.1111/cdoe.12603](https://doi.org/10.1111/cdoe.12603)
 
 ## Repository Documents
 
-> Link your reports, manuscripts, presentations, publication DOIs, preregistrations, etc. here. Delete this instruction and unused list items from your final repository. Adjust the file names and paths and add additional items as necessary.
-
-- Preregistration: https://osf.io/my_study
-- Publication: https://doi.org/my_study
-- Pre-analysis plan: [docs/report/preanalysis.pdf](docs/report/preanalysis.pdf)
-- Study report: [docs/report/report.pdf](docs/report/report.pdf)
-- Manuscript: [docs/manuscript/manuscript.pdf](docs/manuscript/manuscript.pdf)
-- Presentation: [docs/presentation/presentation.pdf](docs/presentation/presentation.pdf)
+- Code: [procedure/code/dental-gwr.Rmd](procedure/code/dental-gwr.Rmd)
+- Study report: [docs/report/report.md](docs/report/report.md)
 
 ## Repository Contents
 

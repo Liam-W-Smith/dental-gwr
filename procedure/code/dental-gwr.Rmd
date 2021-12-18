@@ -1,0 +1,738 @@
+---
+title: "dental-gwr"
+output: html_document
+---
+
+# List Processing Environment and Packages for Reproducibility
+
+```{r install and load packages}
+
+# list of required packages
+packages <- c( "tidyverse", "spgwr", "here", "sf", "tmap", "ggcorrplot", "car", "ggplot2", "broom")
+
+# load required packages
+package.check <- lapply(
+  packages,
+  FUN = function(x) {
+    if (!require(x, character.only = TRUE)) {
+      install.packages(x, dependencies = TRUE, quietly=TRUE)
+      library(x, character.only = TRUE)
+    }
+  }
+)
+
+```
+
+```{r}
+writeLines(capture.output(sessionInfo()),here("procedure","environment","r_environment.txt"))
+```
+
+# Import & Clean Extractions Dataset
+Tidy data downloaded from https://www.gov.uk/government/publications/hospital-tooth-extractions-of-0-to-19-year-olds. This data contains the number of times that children, grouped by local authority of child's residence, were admitted to a hospital for tooth extractions. 
+```{r}
+extractions <- read_csv(here("data", "raw", "public", "extractions.csv")) 
+```
+The provided data set includes data for multiple years. Broomhead et al considered just the data for the year 2017/18, so we select that year below.
+```{r select only the year of interest}
+extractions <- extractions %>%
+  filter(Year == 1718)
+```
+
+Inspecting the data reveals the presence of many `*` symbols under the `Count` column. According to the data provider, the symbol due to privacy concerns, figures less than 6 are "suppressed because of disclosure control. All other subnational figures rounded to the nearest 5." It is unclear how the authors addressed this concern. Totals are given on the nation-wide level, but since all other subnational figures are rounded to the nearest 5, the data is insufficient to even calculate an average of the missing data. For this reason, I will simply impute `*` with 0.
+
+Briefly let's see how much missing data we are imputing.
+```{r}
+extractions %>%
+  count(Count)%>%
+  slice_max(n)
+```
+Of the 2480 observations in the data set, it appears that 936 of them will be discarded!! That's 37.7% of the data points!!
+
+```{r impute for *}
+extractions <- extractions %>%
+  mutate(Count = if_else(Count == '*', '0', Count))
+```
+
+```{r Convert Count column to dbl}
+extractions <- extractions %>%
+  mutate(Count = as.double(Count))
+```
+
+Currently, I have one observation for several different age groups in each local authority. Local authorities are uniquely represented by ONS_code, so I group by the ONS_code and sum the extractions count in order to generate a dataset where one observation represents one local authority.
+```{r group number of extractions by local authority}
+extractions <- extractions %>%
+  group_by(ONS_code) %>%
+  summarise(extractions = sum(Count))
+```
+
+Several of my observations represent regional or national totals. Let's drop those for clarity. Specifically,
+"E12000001" is the north east region
+"E12000002" is the north west region
+"E12000003" is the Yorkshire and the Humber region
+"E12000004" is the East Midlands region
+"E12000005" is the West Midlands region
+"E12000006" is the East region
+"E12000007" is the London region
+"E12000008" is the south east region
+"E12000009" is the south west region
+"E92000001" is the england country code
+
+```{r}
+extractions <- extractions %>%
+  filter(ONS_code != "E12000001" & ONS_code != "E12000002" &  ONS_code != "E12000003" &  ONS_code != "E12000004" &  ONS_code != "E12000005" & ONS_code != "E12000006" &  ONS_code != "E12000007" &  ONS_code != "E12000008" &  ONS_code != "E12000009" & ONS_code != "E92000001")
+```
+
+Curiously, when I attempted joining my data sets later on, I found that there were some instances in which the ONS_codes in the extractions dataset did not match the codes in the other datasets. Most of the codes matched, but not all of them. It seems that the code system has changed slightly in recent years (SOURCES: https://l-hodge.github.io/ukgeog/articles/boundary-changes.html and https://www.bbc.com/news/uk-england-somerset-44289087). 
+
+Some local authorities have simply received new local authority codes; others have merged to form larger local authorities with one code instead of several. While the dentistry data I am using is data from 2017/18, the local authority codes have actually been updated for this data set (it comes from a larger dataset which includes current figures). I also use a census dataset and geometry dataset later on. These match each other using codes from the 2011 UK census. 
+
+To make the joins work later on, I have to manually make changes.
+
+For the municipalities which have simply received a new ONS_code, I just the ONS codes in the extractions dataset to match the other two datasets.
+```{r}
+extractions <- extractions %>%
+  mutate(ONS_code = if_else(ONS_code == "E06000057", "E06000048", ONS_code),# this one simply changed codes
+         ONS_code = if_else(ONS_code == "E07000240", "E07000100", ONS_code), # this one simply changed codes
+         ONS_code = if_else(ONS_code == "E07000241", "E07000104", ONS_code), # this one simply changed codes
+         ONS_code = if_else(ONS_code == "E07000242", "E07000097", ONS_code), #this one simply changed codes
+         ONS_code = if_else(ONS_code == "E07000243", "E07000101", ONS_code), # this one simply changed codes
+         ONS_code = if_else(ONS_code == "E08000037", "E08000020", ONS_code))  # this one simply changed codes
+```
+
+For the conglomerated municipalities, I must make different changes. Given one dataset with more specific geographic information and another dataset with more general geographic information, it is better practice to aggregate to the more general rather than subdivide to the specific. The latter approach assumes equal distribution of the variables across the different subdivisions, which is highly unlikely. Unfortunately, by inspecting Broomhead et al's maps, one discovers that they have the more specific choices on their maps. It is possible that they did their work before the community's were merged, as all of the merges occurred in 2019 and 2020. The paper, however, was received by the journal on 17 June 2020, and it's possible that the data on the NHS website was different whenever they queried it. It's impossible to know without asking the authors.
+
+All that said, I will perform some grouping operations on both the census and the geometry datasets later on in my code.
+
+# Import & Clean Census Dataset
+In their original paper, Broomhead et al use several dentistry-related independent variables in their analysis. Their data was not readily available online, so I decided to attempt a replication instead of a reproduction, using census data freely available from social explorer: https://www.socialexplorer.com/tables/UK_C2011
+
+```{r}
+uk_census <- read_csv(here("data", "raw", "public", "uk_census.csv"))
+```
+
+```{r}
+uk_census <- uk_census %>%
+  rename("all_usual_residents" = "SE_T001_001",
+         "male" = "SE_T005_002",
+         "female" = "SE_T005_003",
+         "under5" = "SE_T006_002",
+         "5to9" = "SE_T006_003",
+         "10to14" = "SE_T006_004",
+         "15to17" = "SE_T006_005",
+         "single_parent_households" = "SE_T014_001",
+         "foreign_born" = "SE_T018_003",
+         "severe_disability" = "SE_T020_002",
+         "num_households" = "SE_T030_001",
+         "over_1.5_ppr" = "SE_T030_005",
+         "avg_cars_per_household" = "SE_T035_001",
+         "labor_force" = "SE_T044_001",
+         "unemployed" = "SE_T044_002"
+         )
+```
+
+Below I aggregate any old authorities into the new ones.
+```{r}
+E06000058 <- uk_census %>%
+  filter(Geo_LA_CODE == "E06000028" | Geo_LA_CODE == "E07000048" | Geo_LA_CODE == "E06000029") %>% # Filter for Bournemouth, Christchurch and Poole = Bournemouth + Christchurch + Poole
+  summarize(across(all_usual_residents:unemployed, sum)) # add em together
+temp <- tribble(
+  ~Geo_Name, ~Geo_QName, ~Geo_FIPS, ~Geo_LA_CODE,
+     "doesnt matter", "doesnt matter", "doesnt matter", "E06000058")
+E06000058_done <- cbind(temp, E06000058) # the preceding few lines of code just get the correct unique identifying code in there
+
+# I repeat this same process for all the required cases
+
+
+E06000059 <- uk_census %>%
+  filter(Geo_LA_CODE == "E07000049" | Geo_LA_CODE == "E07000050" | Geo_LA_CODE == "E07000051" | Geo_LA_CODE == "E07000052" | Geo_LA_CODE == "E07000053") %>%# Dorset = E Dorset + N Dorset + Purbeck + W Dorset + Weymouth and Portland	
+  summarize(across(all_usual_residents:unemployed, sum))
+temp <- tribble(
+  ~Geo_Name, ~Geo_QName, ~Geo_FIPS, ~Geo_LA_CODE,
+     "doesnt matter", "doesnt matter", "doesnt matter", "E06000059")
+E06000059_done <- cbind(temp, E06000059) # the preceding few lines of code just get the correct unique identifying code in there
+
+
+E06000060 <- uk_census %>%
+  filter(Geo_LA_CODE == "E07000004" | Geo_LA_CODE == "E07000005" | Geo_LA_CODE == "E07000006" | Geo_LA_CODE == "E07000007") %>% # Buckinghamshire = Aylesbury Vale + Chiltern + South Bucks	+ Wycombe
+  summarize(across(all_usual_residents:unemployed, sum))
+temp <- tribble(
+  ~Geo_Name, ~Geo_QName, ~Geo_FIPS, ~Geo_LA_CODE,
+     "doesnt matter", "doesnt matter", "doesnt matter", "E06000060")
+E06000060_done <- cbind(temp, E06000060) # the preceding few lines of code just get the correct unique identifying code in there
+
+
+E07000244 <- uk_census %>%
+  filter(Geo_LA_CODE == "E07000205" | Geo_LA_CODE == "E07000206")%>% # East Suffolk = Suffolk Coastal + Waveney
+  summarize(across(all_usual_residents:unemployed, sum))
+temp <- tribble(
+  ~Geo_Name, ~Geo_QName, ~Geo_FIPS, ~Geo_LA_CODE,
+     "doesnt matter", "doesnt matter", "doesnt matter", "E07000244")
+E07000244_done <- cbind(temp, E07000244) # the preceding few lines of code just get the correct unique identifying code in there
+
+
+E07000245 <- uk_census %>%
+  filter(Geo_LA_CODE == "E07000201" | Geo_LA_CODE == "E07000204") %>% # West Suffolk = Forest Heath	+ St Edmundsbury
+  summarize(across(all_usual_residents:unemployed, sum))
+temp <- tribble(
+  ~Geo_Name, ~Geo_QName, ~Geo_FIPS, ~Geo_LA_CODE,
+     "doesnt matter", "doesnt matter", "doesnt matter", "E07000245")
+E07000245_done <- cbind(temp, E07000245) # the preceding few lines of code just get the correct unique identifying code in there
+
+
+E07000246 <- uk_census %>%
+  filter(Geo_LA_CODE == "E07000190" | Geo_LA_CODE == "E07000191") %>% # Somerset W and Taunton = Taunton Deane + W Somerset
+  summarize(across(all_usual_residents:unemployed, sum))
+temp <- tribble(
+  ~Geo_Name, ~Geo_QName, ~Geo_FIPS, ~Geo_LA_CODE,
+     "doesnt matter", "doesnt matter", "doesnt matter", "E07000246")
+E07000246_done <- cbind(temp, E07000246) # the preceding few lines of code just get the correct unique identifying code in there
+```
+
+Now I row bind this information back into the original uk_census dataset. I don't need to remove the old rows because they simply will fail to join later on.
+```{r}
+uk_census <- rbind(uk_census, E06000058_done)
+uk_census <- rbind(uk_census, E06000059_done)
+uk_census <- rbind(uk_census, E06000060_done)
+uk_census <- rbind(uk_census, E07000244_done)
+uk_census <- rbind(uk_census, E07000245_done)
+uk_census <- rbind(uk_census, E07000246_done)
+```
+yay! this was a frustrating and unexpected hurdle but now the census dataset has observations that will match the extractions dataset.
+
+I normalize the variables I'm interested in.
+```{r}
+uk_census <- uk_census %>%
+  mutate(pctChild = (under5 + `5to9` + `10to14` +`15to17`)/all_usual_residents,
+         single_parent_households_ph = single_parent_households/num_households,
+         foreign_rate = foreign_born/all_usual_residents,
+         severe_disability_rate = severe_disability/all_usual_residents,
+         crowded_rate = over_1.5_ppr/num_households,
+         unemployment_rate = unemployed/labor_force)
+```
+
+And I select just the variables I care about.
+```{r}
+uk_census <- uk_census %>%
+  select(pctChild, single_parent_households_ph, foreign_rate, severe_disability_rate, crowded_rate, unemployment_rate, Geo_Name, Geo_LA_CODE, all_usual_residents)
+```
+
+# Import and Clean Geometry Dataset
+SOURCE: https://opendata.arcgis.com/datasets/97a614bdcc6043bd9a3cbfbba8a1f302_0.geojson (copy directly into browser to download data)
+Obtained the file link from https://geoportal.statistics.gov.uk/datasets/ons::local-authority-districts-may-2021-uk-bfc/explore?location=54.883506%2C-3.316939%2C5.72
+
+Unfortunately, the file is massive and is too large to be carried by github. To access this data, you'll need to download it from the link provided, open it in QGIS, and save it as a gpkg instead of a geojson.
+
+First, I load my geometry data.
+```{r}
+local_authorities <- read_sf(here("data", "raw", "private", "local_authorities.gpkg"))
+```
+
+Next, I select only the variables I care about (geometry is automatically kept).
+```{r}
+local_authorities <- local_authorities %>%
+  select(geo_code)
+```
+
+
+Below I aggregate any old authorities into the new ones.
+```{r}
+gE06000058 <- local_authorities %>%
+  filter(geo_code == "E06000028" | geo_code == "E07000048" | geo_code == "E06000029")%>% # Filter for Bournemouth, Christchurch and Poole = Bournemouth + Christchurch + Poole
+  st_union() # I use the st_union function to dissolve the three geometries into one 
+gE06000058 <- st_as_sf(gE06000058) %>%
+  mutate(geo_code = "E06000058")%>%
+  rename("geom" = "x") #the previous few lines create another sf object with just the merged local authority. I will rowbind this to the whole local_authorities dataset shortly.
+
+
+# I repeat this same process for all the required cases
+
+
+gE06000059 <- local_authorities %>%
+  filter(geo_code == "E07000049" | geo_code == "E07000050" | geo_code == "E07000051" | geo_code == "E07000052" | geo_code == "E07000053") %>%# Dorset = E Dorset + N Dorset + Purbeck + W Dorset + Weymouth and Portland	
+  st_union()  
+gE06000059 <- st_as_sf(gE06000059) %>%
+  mutate(geo_code = "E06000059")%>%
+  rename("geom" = "x")
+
+
+gE06000060 <- local_authorities %>%
+  filter(geo_code == "E07000004" | geo_code == "E07000005" | geo_code == "E07000006" | geo_code == "E07000007") %>% # Buckinghamshire = Aylesbury Vale + Chiltern + South Bucks	+ Wycombe
+  st_union()  
+gE06000060 <- st_as_sf(gE06000060) %>%
+  mutate(geo_code = "E06000060")%>%
+  rename("geom" = "x")
+
+
+gE07000244 <- local_authorities %>%
+  filter(geo_code == "E07000205" | geo_code == "E07000206")%>% # East Suffolk = Suffolk Coastal + Waveney
+  st_union()  
+gE07000244 <- st_as_sf(gE07000244) %>%
+  mutate(geo_code = "E07000244")%>%
+  rename("geom" = "x")
+
+
+gE07000245 <- local_authorities %>%
+  filter(geo_code == "E07000201" | geo_code == "E07000204") %>% # West Suffolk = Forest Heath	+ St Edmundsbury
+  st_union()  
+gE07000245 <- st_as_sf(gE07000245) %>%
+  mutate(geo_code = "E07000245")%>%
+  rename("geom" = "x")
+
+
+gE07000246 <- local_authorities %>%
+  filter(geo_code == "E07000190" | geo_code == "E07000191") %>% # Somerset W and Taunton = Taunton Deane + W Somerset
+  st_union()  
+gE07000246 <- st_as_sf(gE07000246) %>%
+  mutate(geo_code = "E07000246")%>%
+  rename("geom" = "x")
+```
+
+Now I row bind this information back into the original local_authorities dataset. I don't need to remove the old rows because they simply will fail to join later on.
+```{r}
+local_authorities <- rbind(local_authorities, gE06000058)
+local_authorities <- rbind(local_authorities, gE06000059)
+local_authorities <- rbind(local_authorities, gE06000060)
+local_authorities <- rbind(local_authorities, gE07000244)
+local_authorities <- rbind(local_authorities, gE07000245)
+local_authorities <- rbind(local_authorities, gE07000246)
+```
+
+Unfortunately, there are still two rows in my extractions dataset that do not have a match in the local_authorities dataset. Let's see what's up
+```{r}
+hmmmm <- anti_join(extractions, local_authorities, by = c("ONS_code" = "geo_code"))
+
+hmmmm
+```
+I searched the internet for these codes and found that E09000033 corresponds to Westminster and E06000052 corresponds to Cornwall. I load the original geometry data again so that I can look at the names of the cities (which I had dropped to make a rowbind work easier earlier).
+```{r}
+test_local_authorities <- read_sf(here("data", "raw", "public", "local_authorities.gpkg"))
+```
+
+```{r}
+test_local_authorities$geo_label
+```
+
+It appears that "City of London,Westminster" and "Cornwall,Isles of Scilly" correspond to the local authorities that I'm looking for. Let's find the geo_codes used for these locations in this dataset. 
+```{r}
+test_local_authorities %>%
+  filter(geo_label == "City of London,Westminster" | geo_label == "Cornwall,Isles of Scilly")
+```
+
+Now I replace the local authority codes with the ones that the other two datasets have been using.
+```{r}
+local_authorities <- local_authorities %>%
+  mutate(geo_code = if_else(geo_code == "E41000052", "E06000052", geo_code),
+         geo_code = if_else(geo_code == "E41000324", "E09000033", geo_code))
+```
+
+I perform two joins in order to get the geometry, census data, and extractions data all in one dataset.
+```{r}
+join1 <- inner_join(local_authorities, extractions, by = c("geo_code" = "ONS_code"))
+```
+
+```{r}
+dentistry <- inner_join(join1, uk_census, by = c("geo_code" = "Geo_LA_CODE"))
+```
+Great! After all that work, we were able to get all of the data into one table.
+
+```{r}
+dentistry <- dentistry %>%
+  mutate(extraction_rate = extractions/all_usual_residents*100000)
+```
+
+I save my cleaned data for others to reference.
+```{r}
+saveRDS(dentistry, here("data", "derived", "public", "dentistry.RDS"))
+```
+
+Optionally, load the data here.
+```{r}
+dentistry <- readRDS(here("data", "derived", "public", "dentistry.RDS"))
+```
+
+
+# Fitting a Linear Regression Model and Assessing Model Fit
+
+Before I fit a Geographically Weighted Regression (GWR) model, I would like to examine an Ordinary Least Squares (OLS) model of my dataset. I do this for a couple reasons. One is that I want to see how the linear regression and geographically weighted regression models differ in performance. If the GWR model outperforms the OLS model, that will reinforce Broomhead et al's decision to use a GWR model in their study. The other reason is that I want to verify that my dataset satisfies the conditions for regression. GWR is an extension from OLS, and I can easily verify that the data satisfies the conditions for OLS regression. 
+
+First, I drop the geometry column from my dataset because the sticky geometry column would cause errors in my calculations otherwise. 
+```{r drop geometry}
+dentistry_nogeom <- dentistry %>% 
+    st_drop_geometry()
+```
+
+The first condition I check for is *multicollinearity*.
+
+I make a correlogram to display the Pearson correlation coefficients between pairs of quantitative variables.
+```{r correlation}
+# select the relevant variables
+dentistry_nogeom <- dentistry_nogeom %>%
+  select(extraction_rate, pctChild, single_parent_households_ph, foreign_rate, severe_disability_rate, crowded_rate, unemployment_rate)
+
+# make correlation matrix
+corr_mtx <- cor(dentistry_nogeom, use = "pairwise.complete.obs") 
+```
+
+```{r correlogram}
+corrplot<- ggcorrplot(corr_mtx, # input the correlation matrix
+           hc.order = TRUE, #helps keep the negatives and positives together to make graph easier to interpret
+           type = "upper", #tells computer to plot the values above the diagonal (we could also do "lower")
+           lab = TRUE,
+           method = "circle")
+corrplot
+```
+
+```{r}
+ggsave(
+  here("results","figures","corrplot.png"),
+  plot = corrplot,
+  width = 6,
+  height = 6,
+  units = "in"
+)
+```
+
+
+If two of my explanatory variables exhibit a correlation coefficient of over 0.6 or less than -0.6, I chose to include just one of them in my regression models. This helps prevent issues of multilinearity. Specifically, I remove crowded_rate and single_parent_households_ph. I'll perform a more rigorous test for multilinearity shortly.
+
+Below, I fit a linear model to my data.
+```{r}
+m <- lm(formula = extraction_rate ~ pctChild + severe_disability_rate + foreign_rate + unemployment_rate, data = dentistry_nogeom)
+```
+
+This is what my model looks like:
+```{r}
+summary(m)
+```
+
+Note that the R-Squared value for the Ordinary Least Squares regression model is 0.1916 This means that the fitted model only explains 19.16% of the variance of child tooth extractions in the UK! My goal is to improve the accuracy of our model by switching to a Geographically Weighted Regression model, which allows for different relationships across space. 
+
+Before applying a Geographically Weighted Regression model, I first test my independent variables for multicollinearity, using a statistical test known as the Variance Inflation Factor (VIF). For context, when the VIF = 1, no multicollinearity is present. Generally, there is cause for concern when the VIF >= 10. For further reading on Variance Inflation Factors, please see: https://online.stat.psu.edu/stat462/node/180/
+```{r}
+vif(m)
+```
+
+The VIFs are all less than 5, indicating that multicollinearity is not problematic in my model. This means that the explanatory variables are not related to each other, which is a condition for accurate linear regression and Geographically Weighted Regression models.
+
+Note that we are addressing correlations on a global level, and it is possible that different correlations exist on a local level. A more rigorous methodology to determine multicollinearity at the level of each data point would be advised.
+
+The second condition that I check for is *linearity*. Both OLS and GWR models assume that each explanatory variable exhibits a linear relationship with the response variable.
+```{r}
+dentistry_relevant <- dentistry_nogeom %>%
+  select(foreign_rate, pctChild, severe_disability_rate, unemployment_rate, extraction_rate)
+```
+
+```{r pivot longer}
+dentistry_nogeom_pivoted <- pivot_longer(data = dentistry_relevant,
+               cols = -extraction_rate, 
+               names_to = "Type", 
+               values_to = "Number")
+```
+
+```{r scatterplot}
+linearity_check <- dentistry_nogeom_pivoted %>%
+  ggplot(aes(x = Number, y = extraction_rate)) + 
+  geom_point(size = 1) +
+  ylab("Extractions per 100,000 People")+
+  ggtitle("Tooth Extractions vs Explanatory Variables") + 
+  facet_wrap(~ Type, scales = "free") +
+  xlab("Rates")
+linearity_check
+```
+
+```{r}
+ggsave(
+  here("results","figures","linearity_check.png"),
+  plot = linearity_check,
+  width = 8,
+  height = 6,
+  units = "in"
+)
+```
+
+All of the variables seem to exhibit some limited linear relationship. It's not perfect, but it's something, and for the purposes of this assignment, we will proceed.
+
+The third condition that I check for is *homoscedasticity*: constant variability along the least squares line. I check this condition by creating a residual plot.
+```{r residual plot}
+m_aug <- augment(m)
+
+residual_plot <- ggplot(m_aug, aes(x = .fitted, y = .resid)) +
+  geom_point() +
+  geom_hline(yintercept = 0, color = "red", lty = "dashed") +
+  xlab("Fitted Values")+
+  ylab("Residuals")+
+  ggtitle("Residual Plot")
+
+residual_plot
+```
+
+```{r}
+ggsave(
+  here("results","figures","residual_plot.png"),
+  plot = residual_plot,
+  width = 8,
+  height = 6,
+  units = "in"
+)
+```
+Since residuals exhibit relatively constant variability along the zero line, this condition is satisfied.
+
+The final condition for linear regression is a *normal distribution of residuals*. I check this condition by creating a histogram below.
+```{r histogram of residuals}
+residual_histogram <- ggplot(m_aug, aes(x = .resid)) +
+  geom_histogram()+
+  xlab("Residuals")+
+  ylab("Count")+
+  ggtitle("Residual Histogram")
+residual_histogram
+```
+The distribution is slightly skewed right, but it's not terrible. Ideally we would have a more normal distribution, but for the purposes of this assignment I move on to fitting a Geographically Weighted Regression model.
+
+```{r}
+ggsave(
+  here("results","figures","residual_histogram.png"),
+  plot = residual_histogram,
+  width = 8,
+  height = 6,
+  units = "in"
+)
+```
+
+# Geographically Weighted Regression Model
+First I create an sp object of dentistry, because that makes the syntax a little simpler for some of the GWR operations.
+```{r}
+dentistry.sp <- as(dentistry, "Spatial")
+```
+
+The GWR model built into the *spgwr package* finds the distance between observations using point geometry, and requires coordinates as inputs. Since local authorities are represented as polygons, the model will not be able to find the distances it requires. In order to assign coordinates to every local authority, we first find every county's centroid (converting polygon to point geometry) and then we find the coordinates of each point.
+```{r}
+centroids <- dentistry %>%
+  st_centroid() %>%
+  st_coordinates()# convert polygons to centroid points
+```
+
+The following code chunk uses the *gwr.sel* function in order to identify the optimal number of observations to include in the regression model. You'll notice that the function reports a series of *adaptive q* values and *CV score* values. Adaptive q refers to the proportion of observations that are included in a neighborhood, while CV score is a measure of how good of a fit the model, where a lower score represents a better fit. Essentially, this function finds the CV score corresponding to a number of different Adaptive q values and selects the Adaptive q that results in the smallest CV score.
+```{r}
+GWRbandwidth_adapt <- gwr.sel(extraction_rate ~ pctChild + severe_disability_rate + foreign_rate + unemployment_rate, data = dentistry.sp, adapt = T)
+```
+
+Now I calculate the GWR model.
+```{r}
+GWR_adapt <- gwr(extraction_rate ~ pctChild + severe_disability_rate + foreign_rate + unemployment_rate, data = dentistry.sp, adapt = GWRbandwidth_adapt, hatmatrix = T, se.fit = T)
+```
+
+Print the model to see what it looks like.
+```{r}
+GWR_adapt
+```
+Note that the selected neighborhood consists of the nearest 11 points.
+
+The current structure of our model is a list, which contains lists, and it is difficult to work with. In order to get our GWR results into a form with which we are familiar with, we convert it to a Data Frame
+```{r}
+results <-as.data.frame(GWR_adapt$SDF)
+names(results)
+```
+
+Attach the coefficients information to the original dentistry.sf data.
+```{r}
+gwr.map_adapt <- cbind(dentistry, as.matrix(results))
+```
+
+
+We almost have enough information to make the maps imitating those shown in Broomhead et al's paper. The only thing I have to do before I can make those maps is determine which coefficients are statistically significant. Unfortunately, the authors did not describe how they determined statistical significance and there is no mentio of p-values. I had to do some online research in order to figure out a reasonable methodology, and I ended up applying the methodology presented in section 9.6.7 of this tutorial: https://gdsl-ul.github.io/san/gwr.html.
+
+1) The standard error for each coefficient at each observations was already calculated by the GWR model.
+2) I calculate the test statistic: t = (estimated coefficient)/SE
+```{r}
+gwr.map_adapt <- gwr.map_adapt %>%
+  mutate(t_pct_child = pctChild.1/pctChild_se,
+         t_foreign_rate = foreign_rate.1/foreign_rate_se,
+         t_severe_disability_rate = severe_disability_rate.1/severe_disability_rate_se,
+         t_unemployment_rate = unemployment_rate.1/unemployment_rate_se,)
+```
+
+3) I approximate significance using the t-value. The authors of https://gdsl-ul.github.io/san/gwr.html indicate that I can roughly consider a value to be statistically significant when the absolute value of the t-value is greater than 1.96.
+
+I save my derived data for others to reference.
+```{r}
+saveRDS(gwr.map_adapt, here("data", "derived", "public", "gwr.map_adapt.RDS"))
+```
+
+Optionally, load the data here.
+```{r}
+gwr.map_adapt <- readRDS(here("data", "derived", "public", "gwr.map_adapt.RDS"))
+```
+
+# Mapping Results
+## Percent Children
+```{r}
+tm_shape(gwr.map_adapt) +
+  tm_polygons("pctChild.1", 
+    title="Pct Children Coefficients",
+    style="jenks",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette="RdYlBu"
+  )
+```
+
+```{r}
+children_ns <- gwr.map_adapt %>%
+  filter(t_pct_child <= 1.96 & t_pct_child >= -1.96)
+```
+
+```{r}
+tm_shape(gwr.map_adapt) +
+  tm_polygons("pctChild.1", 
+    title="Significant Results",
+    style="jenks",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette="RdYlBu")+
+  tm_shape(children_ns)+
+    tm_polygons(col = "white",
+            border.alpha = .2,
+            lwd = 0.2)
+```
+
+## Foreign Rate
+```{r}
+tm_shape(gwr.map_adapt) +
+  tm_polygons("foreign_rate.1", 
+    title="Pct Foreign Coefficients",
+    style="jenks",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette="RdYlBu"
+  )
+```
+
+```{r}
+foreign_ns <- gwr.map_adapt %>%
+  filter(t_foreign_rate <= 1.96 & t_foreign_rate >= -1.96)
+```
+
+```{r}
+tm_shape(gwr.map_adapt) +
+  tm_polygons("foreign_rate.1", 
+    title="Significant Results",
+    style="jenks",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette="RdYlBu")+
+  tm_shape(foreign_ns)+
+    tm_polygons(col = "white",
+            border.alpha = .2,
+            lwd = 0.2)
+```
+
+
+## Disability Rate
+
+```{r}
+tm_shape(gwr.map_adapt) +
+  tm_polygons("severe_disability_rate.1", 
+    title="Pct Disability Coefficients",
+    style="jenks",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette="RdYlBu"
+  )
+```
+
+    ```{r}
+disability_ns <- gwr.map_adapt %>%
+  filter(t_severe_disability_rate <= 1.96 & t_severe_disability_rate >= -1.96)
+```                                
+                                    
+```{r}
+tm_shape(gwr.map_adapt) +
+  tm_polygons("severe_disability_rate.1", 
+    title="Significant Results",
+    style="quantile",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette="RdYlBu")+
+  tm_shape(disability_ns)+
+    tm_polygons(col = "white",
+            border.alpha = .2,
+            lwd = 0.2)
+```
+
+## Unemployment Rate
+ 
+```{r}
+tm_shape(gwr.map_adapt) +
+  tm_polygons("unemployment_rate.1", 
+    title="Unemployment Coefficients",
+    style="jenks",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette="RdYlBu")
+```
+
+    ```{r}
+unemployed_ns <- gwr.map_adapt %>%
+  filter(t_unemployment_rate <= 1.96 & t_unemployment_rate >= -1.96)
+```                                
+                                    
+```{r}
+tm_shape(gwr.map_adapt) +
+  tm_polygons("unemployment_rate.1", 
+    title="Significant Results",
+    style="jenks",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette="RdYlBu")+
+  tm_shape(unemployed_ns)+
+    tm_polygons(col = "white",
+            border.alpha = .2,
+            lwd = 0.2)
+```
+                                   
+
+
+                                                    
+## the Model in General
+
+```{r}
+tm_shape(dentistry) +
+  tm_polygons("extraction_rate", 
+    title="Extractions per 100k People",
+    style="quantile",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette="YlOrBr"
+  )
+```
+
+```{r}
+tm_shape(gwr.map_adapt) +
+  tm_polygons("pred", 
+    title="Predicted Extractions",
+    style="fixed", breaks = c(-Inf, 32, 56.5, 93, 155.3, 373.1),
+    border.alpha = .2,
+    lwd = 0.2,
+    palette="YlOrBr")
+
+```
+
+```{r}
+summary(gwr.map_adapt$localR2)
+```
+According to the R-Squared values, the Geographically Weighted Regression model performs far better than the Ordinary Least Squares regression model we saw earlier. Recall that we observed an R-Squared value of 0.1916 in the linear regression model. In this model, the average R-Squared value is 0.5072, and the minimum value is 0.2150, so GWR can explain far more variance in the extractions data than linear regression can.
+
+To see where our model performs better and where it performs worse, let's map our R-Squared values.
+```{r}
+tm_shape(gwr.map_adapt) +
+  tm_polygons("localR2", 
+    title="R-Squared Values",
+    style="quantile",
+    border.alpha = .2,
+    lwd = 0.2,
+    palette="PuBuGn"
+  )
+
+```
+
+

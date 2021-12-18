@@ -1,0 +1,1882 @@
+--------------------------------------------------------------------------------
+Codebook for Social Explorer report ID: R12994373
+--------------------------------------------------------------------------------
+
+Contents
+    - Table Summary
+    - Data Dictionary
+    - Citation and Use
+
+
+--------------------------------------------------------------------------------
+Table Summary
+--------------------------------------------------------------------------------
+ 
+Survey:           UK Census 2011
+Dataset:          Social Explorer Tables
+Tables:
+
+      1. All Usual Residents
+         Universe:  All usual residents
+         Name:      T1
+         Variables:
+            T001_001:   All Usual Residents
+
+
+      2. Population Density (per Hectare)
+         Universe:  All usual residents
+         Name:      T2
+         Variables:
+            T002_001:   All Usual Residents
+            T002_002:   Area (Hectares)
+            T002_003:   Density (Number of Persons Per Hectare)
+
+
+      3. Population Density (per Sq. Mile)
+         Universe:  All usual residents
+         Name:      T3
+         Variables:
+            T003_001:   All Usual Residents
+            T003_002:   Area (per Sq. Mile)
+            T003_003:   Density (Number of Persons per Sq. Mile)
+
+
+      4. Population Density (per Sq. Kilometer)
+         Universe:  All usual residents
+         Name:      T4
+         Variables:
+            T004_001:   All Usual Residents
+            T004_002:   Area (per Sq. Kilometers)
+            T004_003:   Density (Number of Persons per Sq. Kilometers)
+
+
+      5. Sex
+         Universe:  All usual residents
+         Name:      T5
+         Variables:
+            T005_001:   All Usual Residents:
+            T005_002:      Male
+            T005_003:      Female
+
+
+      6. Age
+         Universe:  All usual residents
+         Name:      T6
+         Variables:
+            T006_001:   All Usual Residents:
+            T006_002:      Under 5 Years
+            T006_003:      5 to 9 Years
+            T006_004:      10 to 14 Years
+            T006_005:      15 to 17 Years
+            T006_006:      18 to 24 Years
+            T006_007:      25 to 29 Years
+            T006_008:      30 to 44 Years
+            T006_009:      45 to 59 Years
+            T006_010:      60 to 64 Years
+            T006_011:      65 to 74 Years
+            T006_012:      75 to 84 Years
+            T006_013:      85 Years and Over
+
+
+      7. Age - Cumulative (Less)
+         Universe:  All usual residents
+         Name:      T6A
+         Variables:
+            T006A001:   All Usual Residents:
+            T006A002:      Less than 5 Years
+            T006A003:      Less than 10 Years
+            T006A004:      Less than 15 Years
+            T006A005:      Less than 18 Years
+            T006A006:      Less than 25 Years
+            T006A007:      Less than 30 Years
+            T006A008:      Less than 45 Years
+            T006A009:      Less than 60 Years
+            T006A010:      Less than 65 Years
+            T006A011:      Less than 75 Years
+            T006A012:      Less than 85 Years
+
+
+      8. Age - Cumulative (More)
+         Universe:  All usual residents
+         Name:      T6B
+         Variables:
+            T006B001:   All Usual Residents:
+            T006B002:      More than 5 Years
+            T006B003:      More than 10 Years
+            T006B004:      More than 15 Years
+            T006B005:      More than 18 Years
+            T006B006:      More than 25 Years
+            T006B007:      More than 30 Years
+            T006B008:      More than 45 Years
+            T006B009:      More than 60 Years
+            T006B010:      More than 65 Years
+            T006B011:      More than 75 Years
+            T006B012:      More than 85 Years
+
+
+      9. Age (Detailed Version)
+         Universe:  Total population
+         Name:      T7
+         Variables:
+            T007_001:   All Usual Residents:
+            T007_002:      Under 5 Years
+            T007_003:      5 to 9 Years
+            T007_004:      10 to 14 Years
+            T007_005:      15 to 17 Years
+            T007_006:      18 and 19 Years
+            T007_007:      20 Years
+            T007_008:      21 Years
+            T007_009:      22 to 24 Years
+            T007_010:      25 to 29 Years
+            T007_011:      30 to 34 Years
+            T007_012:      35 to 39 Years
+            T007_013:      40 to 44 Years
+            T007_014:      45 to 49 Years
+            T007_015:      50 to 54 Years
+            T007_016:      55 to 59 Years
+            T007_017:      60 and 61 Years
+            T007_018:      62 to 64 Years
+            T007_019:      65 and 66 Years
+            T007_020:      67 to 69 Years
+            T007_021:      70 to 74 Years
+            T007_022:      75 to 79 Years
+            T007_023:      80 to 84 Years
+            T007_024:      85 Years and Over
+
+
+      10. Age (Detailed Version) - Cumulative (Less)
+          Universe:  Total population
+          Name:      T7A
+          Variables:
+             T007A001:   All Usual Residents:
+             T007A002:      Less than 5 Years
+             T007A003:      Less than 10 Years
+             T007A004:      Less than 15 Years
+             T007A005:      Less than 18 Years
+             T007A006:      Less than 20 Years
+             T007A007:      Less than 21 Years
+             T007A008:      Less than 22 Years
+             T007A009:      Less than 25 Years
+             T007A010:      Less than 30 Years
+             T007A011:      Less than 35 Years
+             T007A012:      Less than 40 Years
+             T007A013:      Less than 45 Years
+             T007A014:      Less than 50 Years
+             T007A015:      Less than 55 Years
+             T007A016:      Less than 60 Years
+             T007A017:      Less than 62 Years
+             T007A018:      Less than 65 Years
+             T007A019:      Less than 67 Years
+             T007A020:      Less than 70 Years
+             T007A021:      Less than 75 Years
+             T007A022:      Less than 80 Years
+             T007A023:      Less than 85 Years
+
+
+      11. Age (Detailed Version) - Cumulative (More)
+          Universe:  Total population
+          Name:      T7B
+          Variables:
+             T007B001:   All Usual Residents:
+             T007B002:      More than 5 Years
+             T007B003:      More than 10 Years
+             T007B004:      More than 15 Years
+             T007B005:      More than 18 Years
+             T007B006:      More than 20 Years
+             T007B007:      More than 21 Years
+             T007B008:      More than 22 Years
+             T007B009:      More than 25 Years
+             T007B010:      More than 30 Years
+             T007B011:      More than 35 Years
+             T007B012:      More than 40 Years
+             T007B013:      More than 45 Years
+             T007B014:      More than 50 Years
+             T007B015:      More than 55 Years
+             T007B016:      More than 60 Years
+             T007B017:      More than 62 Years
+             T007B018:      More than 65 Years
+             T007B019:      More than 67 Years
+             T007B020:      More than 70 Years
+             T007B021:      More than 75 Years
+             T007B022:      More than 80 Years
+             T007B023:      More than 85 Years
+
+
+      12. Age (Short Version)
+          Universe:  Total Population
+          Name:      T8
+          Variables:
+             T008_001:   All Usual Residents:
+             T008_002:      Under 18 Years
+             T008_003:      18 to 34 Years
+             T008_004:      35 to 64 Years
+             T008_005:      65 and Over
+
+
+      13. Mean and Median Age
+          Universe:  All usual residents
+          Name:      T9
+          Variables:
+             T009_001:   Mean Age
+             T009_002:   Median Age
+
+
+      14. Residence Type
+          Universe:  All Usual Residents
+          Name:      T10
+          Variables:
+             T010_001:   All Usual Residents:
+             T010_002:      Lives in a Household
+             T010_003:      Lives in a Communal Establishment
+
+
+      15. Marital and Civil Partnership Status
+          Universe:  All usual residents aged 16 and over
+          Name:      T11
+          Variables:
+             T011_001:   All Usual Residents Aged 16 and Over:
+             T011_002:      Single (Never Married or Never Registered a Same-Sex Civil Partnership)
+             T011_003:      Married
+             T011_004:      In a Registered Same-Sex Civil Partnership
+             T011_005:      Separated (But Still Legally Married or Still Legally in a Same-Sex Civil Partnership)
+             T011_006:      Divorced or Formerly in a Same-Sex Civil Partnership Which Is Now Legally Dissolved
+             T011_007:      Widowed or Surviving Partner From a Same-Sex Civil Partnership
+
+
+      16. Living Arrangements
+          Universe:  All usual residents aged 16 and over in households
+          Name:      T12
+          Variables:
+             T012_001:   All Usual Residents Aged 16 and Over in Households:
+             T012_002:      Living in a Couple:
+             T012_003:         Married or in a Registered Same-Sex Civil Partnership
+             T012_004:         Cohabiting
+             T012_005:      Not Living in a Couple:
+             T012_006:         Single (Never Married or Never Registered a Same-Sex Civil Partnership)
+             T012_007:         Married or in a Registered Same-Sex Civil Partnership
+             T012_008:         Separated (But Still Legally Married or Still Legally in a Same-Sex Civil Partnership)
+             T012_009:         Divorced or Formerly in a Same-Sex Civil Partnership Which Is Now Legally Dissolved
+             T012_010:         Widowed or Surviving Partner From a Same-Sex Civil Partnership
+
+
+      17. Household Composition
+          Universe:  All households
+          Name:      T13
+          Variables:
+             T013_001:   All Households:
+             T013_002:      One Person Household:
+             T013_003:         Aged 65 and Over
+             T013_004:         Other
+             T013_005:      One Family Only:
+             T013_006:         All Aged 65 and Over
+             T013_007:         Married or Same-Sex Civil Partnership Couple:
+             T013_008:            No Children
+             T013_009:            Dependent Children
+             T013_010:            All Children Non-Dependent
+             T013_011:         Cohabiting Couple:
+             T013_012:            No Children
+             T013_013:            Dependent Children
+             T013_014:            All Children Non-Dependent
+             T013_015:         Lone Parent:
+             T013_016:            Dependent Children
+             T013_017:            All Children Non-Dependent
+             T013_018:      Other Household Types:
+             T013_019:         With Dependent Children
+             T013_020:         All Full-Time Students
+             T013_021:         All Aged 65 and Over
+             T013_022:         Other
+
+
+      18. Lone Parent Households With Dependent Children
+          Universe:  All lone parent households with dependent children where the lone parent is aged 16 to 74
+          Name:      T14
+          Variables:
+             T014_001:   Lone Parent Households With Dependent Children:
+             T014_002:      Lone Parent in Part-Time Employment
+             T014_003:      Lone Parent in Full-Time Employment
+             T014_004:      Lone Parent Not in Employment
+
+
+      19. Lone Parent Households With Dependent Children by Sex
+          Universe:  All lone parent households with dependent children where the lone parent is aged 16 to 74
+          Name:      T15
+          Variables:
+             T015_001:   Lone Parent Households With Dependent Children:
+             T015_002:      Male Lone Parent:
+             T015_003:         In Part-Time Employment
+             T015_004:         In Full-Time Employment
+             T015_005:         Not in Employment
+             T015_006:      Female Lone Parent:
+             T015_007:         In Part-Time Employment
+             T015_008:         In Full-Time Employment
+             T015_009:         Not In Employment
+
+
+      20. Country of Birth
+          Universe:  All usual residents
+          Name:      T16
+          Variables:
+             T016_001:   All Usual Residents:
+             T016_002:      Europe:
+             T016_003:         United Kingdom:
+             T016_004:            England
+             T016_005:            Northern Ireland
+             T016_006:            Scotland
+             T016_007:            Wales
+             T016_008:            United Kingdom Not Otherwise Specified
+             T016_009:         Channel Islands and Isle of Man
+             T016_010:         Republic of Ireland
+             T016_011:         Other Europe:
+             T016_012:            EU Countries:
+             T016_013:               Germany
+             T016_014:               Lithuania
+             T016_015:               Poland
+             T016_016:               Romania
+             T016_017:               Other EU  Countries
+             T016_018:            Rest of Europe:
+             T016_019:               Turkey
+             T016_020:               Other Europe
+             T016_021:      Africa:
+             T016_022:         North Africa
+             T016_023:         Central and Western Africa:
+             T016_024:            Nigeria
+             T016_025:            Other Central and Western Africa
+             T016_026:         South and Eastern Africa:
+             T016_027:            Kenya
+             T016_028:            South Africa
+             T016_029:            Zimbabwe
+             T016_030:            Other South and Eastern Africa
+             T016_031:      Asia:
+             T016_032:         Middle East:
+             T016_033:            Iran
+             T016_034:            Other Middle East
+             T016_035:         Eastern Asia:
+             T016_036:            China
+             T016_037:            Hong Kong (Special Administrative Region of China)
+             T016_038:            Other Eastern Asia
+             T016_039:         Southern Asia:
+             T016_040:            Bangladesh
+             T016_041:            India
+             T016_042:            Pakistan
+             T016_043:            Other Southern Asia
+             T016_044:         South-East Asia:
+             T016_045:         Central Asia
+             T016_046:      The Americas and the Caribbean:
+             T016_047:         North America and the Caribbean:
+             T016_048:            The Caribbean
+             T016_049:            United States of America
+             T016_050:            Other North America
+             T016_051:         Central America
+             T016_052:         South America
+             T016_053:      Antarctica and Oceania:
+             T016_054:         Australia
+             T016_055:         Other Antarctia and Oceania
+             T016_056:      Other
+
+
+      21. Ethnic Group
+          Universe:  All usual residents
+          Name:      T17
+          Variables:
+             T017_001:   All Usual Residents:
+             T017_002:      White
+             T017_003:      Gypsy/Traveller/Irish Traveller
+             T017_004:      Mixed/Multiple Ethnic Groups
+             T017_005:      Asian/Asian British:
+             T017_006:         Indian
+             T017_007:         Pakistani
+             T017_008:         Bangladeshi
+             T017_009:         Chinese
+             T017_010:         Other Asian
+             T017_011:      Black/African/Caribbean/Black British
+             T017_012:      Other Ethnic Group
+
+
+      22. Foreign Born Population
+          Universe:  All usual residents
+          Name:      T18
+          Variables:
+             T018_001:   All Usual Residents:
+             T018_002:      Native Born (United Kingdom)
+             T018_003:      Foreign Born
+
+
+      23. Disability Status
+          Universe:  All usual residents
+          Name:      T20
+          Variables:
+             T020_001:   All Usual Residents:
+             T020_002:      Day-To-Day Activities Limited a Lot
+             T020_003:      Day-To-Day Activities Limited a Little
+             T020_004:      Day-To-Day Activities Not Limited
+
+
+      24. Disability Status - Age 16 to 64
+          Universe:  All usual residents aged 16 to 64
+          Name:      T21
+          Variables:
+             T021_001:   Residents Age 16 to 64:
+             T021_002:      Day-To-Day Activities Limited a Lot
+             T021_003:      Day-To-Day Activities Limited a Little
+             T021_004:      Day-To-Day Activities Not Limited
+
+
+      25. Health
+          Universe:  All usual residents
+          Name:      T22
+          Variables:
+             T022_001:   All Usual Residents:
+             T022_002:      Very Good Health
+             T022_003:      Good Health
+             T022_004:      Fair Health
+             T022_005:      Bad Health
+             T022_006:      Very Bad Health
+
+
+      26. Provision of Unpaid Care
+          Universe:  All usual residents
+          Name:      T23
+          Variables:
+             T023_001:   All Usual Residents:
+             T023_002:      Provides No Unpaid Care
+             T023_003:      Provides 1 to 19 Hours
+             T023_004:      Provides 20 to 49 Hours
+             T023_005:      Provides 50 or More Hours
+
+
+      27. Dwellings
+          Universe:  All dwellings
+          Name:      T24
+          Variables:
+             T024_001:   Dwellings:
+             T024_002:      Unshared Dwelling
+             T024_003:      Shared Dwelling
+
+
+      28. Household Spaces
+          Universe:  All household spaces
+          Name:      T25
+          Variables:
+             T025_001:   All Household Spaces:
+             T025_002:      Household Spaces With at Least One Usual Resident
+             T025_003:      Household Spaces With No Usual Residents
+
+
+      29. Accommodation Type - Households
+          Universe:  All household spaces
+          Name:      T26
+          Variables:
+             T026_001:   All Household Spaces:
+             T026_002:      Whole House or Bungalow:
+             T026_003:         Detached
+             T026_004:         Semi-Detached
+             T026_005:         Terraced (Including End-Terrace)
+             T026_006:      Flat, Maisonette or Apartment:
+             T026_007:         Purpose-Built Block of Flats or Tenement
+             T026_008:         Part of a Converted or Shared House (Including Bed-Sits)
+             T026_009:         In a Commercial Building
+             T026_010:      Caravan or Other Mobile or Temporary Structure
+
+
+      30. Tenure - Households (Detailed)
+          Universe:  All households
+          Name:      T27
+          Variables:
+             T027_001:   All Household Spaces With at Least One Usual Resident:
+             T027_002:      Owned:
+             T027_003:         Owned Outright
+             T027_004:         Owned With a Mortgage or Loan
+             T027_005:      Shared Ownership (Part Owned and Part Rented)
+             T027_006:      Rented:
+             T027_007:         Private Landlord or Letting Agency
+             T027_008:         Private Other
+             T027_009:         Social Rented From Council (Local Authority)
+             T027_010:         Social Rented Other
+             T027_011:      Living Rent Free
+
+
+      31. Tenure - Households (Short Version)
+          Universe:  All households
+          Name:      T28
+          Variables:
+             T028_001:   All Household Spaces With at Least One Usual Resident:
+             T028_002:      Owned
+             T028_003:      Shared Ownership (Part Owned and Part Rented)
+             T028_004:      Rented
+             T028_005:      Living Rent Free
+
+
+      32. Household Size
+          Universe:  All household spaces with at least one usual resident
+          Name:      T29
+          Variables:
+             T029_001:   All Household Spaces With at Least One Usual Resident:
+             T029_002:      1 Person in Household
+             T029_003:      2 People in Household
+             T029_004:      3 People in Household
+             T029_005:      4 People in Household
+             T029_006:      5 People in Household
+             T029_007:      6 People in Household
+             T029_008:      7 People in Household
+             T029_009:      8 or More People in Household
+
+
+      33. Persons Per Room - Households
+          Universe:  All households
+          Name:      T30
+          Variables:
+             T030_001:   All Households:
+             T030_002:      Up to 0.5 Persons Per Room
+             T030_003:      Over 0.5 and Up to 1.0 Persons Per Room
+             T030_004:      Over 1.0 and Up to 1.5 Persons Per Room
+             T030_005:      Over 1.5 Persons Per Room
+
+
+      34. Number of Rooms
+          Universe:  All household spaces with at least one usual resident
+          Name:      T31
+          Variables:
+             T031_001:   All Household Spaces With at Least One Usual Resident:
+             T031_002:      1 Room
+             T031_003:      2 Rooms
+             T031_004:      3 Rooms
+             T031_005:      4 Rooms
+             T031_006:      5 Rooms
+             T031_007:      6 Rooms
+             T031_008:      7 Rooms
+             T031_009:      8 Rooms
+             T031_010:      9 or More Rooms
+
+
+      35. Central Heating
+          Universe:  All household spaces with at least one usual resident
+          Name:      T32
+          Variables:
+             T032_001:   All Household Spaces With at Least One Usual Resident:
+             T032_002:      No Central Heating
+             T032_003:      Gas Central Heating
+             T032_004:      Electric (Including Storage Heaters) Central Heating
+             T032_005:      Oil Central Heating
+             T032_006:      Solid Fuel (For Example Wood, Coal) Central Heating
+             T032_007:      Other Central Heating
+             T032_008:      Two or More Types of Central Heating
+
+
+      36. Car or Van Availability by Household
+          Universe:  All households
+          Name:      T33
+          Variables:
+             T033_001:   All Households:
+             T033_002:      Households With No Cars or Vans
+             T033_003:      Households With 1 Car or Van
+             T033_004:      Households With 2 Cars or Vans
+             T033_005:      Households With 3 Cars or Vans
+             T033_006:      Households With 4 or More Cars or Vans
+
+
+      37. Cars or Vans Count
+          Universe:  All cars or vans
+          Name:      T34
+          Variables:
+             T034_001:   Sum of All Cars or Vans
+
+
+      38. Average Cars or Vans per Household
+          Universe:  All cars or vans
+          Name:      T35
+          Variables:
+             T035_001:   Average Cars or Vans per Household
+
+
+      39. Communal Establishments
+          Universe:  All communal establishments
+          Name:      T36
+          Variables:
+             T036_001:   All Communal Establishments
+
+
+      40. Communal Establishment Residents (Detailed)
+          Universe:  All usual residents in communal establishments
+          Name:      T37
+          Variables:
+             T037_001:   All Usual Residents in Communal Establishments: 
+             T037_002:      Medical and Care Establishment:
+             T037_003:         NHS (National Health Service) / HSCT (Haematopoietic Stem Cell Transplantation):
+             T037_004:            General Hospital
+             T037_005:            Mental Health Hospital/Unit (Including Secure Units)
+             T037_006:            Other Hospital
+             T037_007:         Local Authority:
+             T037_008:            Children's Home (Including Secure Units)
+             T037_009:            Care Home With Nursing
+             T037_010:            Care Home Without Nursing
+             T037_011:            Other Home
+             T037_012:         Registered Social Landlord/Housing Association:
+             T037_013:            Home or Hostel
+             T037_014:            Sheltered Housing Only
+             T037_015:         Other:
+             T037_016:            Care Home With Nursing
+             T037_017:            Care Home Without Nursing
+             T037_018:            Other: Children's Home (Including Secure Units)
+             T037_019:            Mental Health Hospital/Unit (Including Secure Units)
+             T037_020:            Other Hospital
+             T037_021:            Other Establishment
+             T037_022:      Other Establishment:
+             T037_023:         Defence
+             T037_024:         Prison Service
+             T037_025:         Approved Premises (Probation/Bail Hostel)
+             T037_026:         Detention Centres and Other Detention
+             T037_027:         Education
+             T037_028:         Hotel: Guest House; B&b; Youth Hostel
+             T037_029:         Hostel or Temporary Shelter For the Homeless
+             T037_030:         Holiday Accommodation (For Example Holiday Parks)
+             T037_031:         Other Travel or Temporary Accommodation
+             T037_032:         Religious
+             T037_033:         Staff/Worker Accommodation Only
+             T037_034:         Other
+
+
+      41. Communal Establishment Residents (Short Version)
+          Universe:  All usual residents in communal establishments
+          Name:      T38
+          Variables:
+             T038_001:   All Usual Residents in Communal Establishments: 
+             T038_002:      Medical and Care Establishment:
+             T038_003:         NHS (National Health Service) / HSCT (Haematopoietic Stem Cell Transplantation):
+             T038_004:         Local Authority:
+             T038_005:         Registered Social Landlord/Housing Association:
+             T038_006:         Other
+             T038_007:      Other Establishment:
+             T038_008:         Defence
+             T038_009:         Prison Service
+             T038_010:         Approved Premises (Probation/Bail Hostel)
+             T038_011:         Detention Centres and Other Detention
+             T038_012:         Education
+             T038_013:         Hotel: Guest House; B&b; Youth Hostel
+             T038_014:         Hostel or Temporary Shelter For the Homeless
+             T038_015:         Holiday Accommodation (For Example Holiday Parks)
+             T038_016:         Other Travel or Temporary Accommodation
+             T038_017:         Religious
+             T038_018:         Staff/Worker Accommodation Only
+             T038_019:         Other
+
+
+      42. Position in Communal Establishment
+          Universe:  All usual residents in communal establishments
+          Name:      T39
+          Variables:
+             T039_001:   All Usual Residents in Communal Establishments:
+             T039_002:      Resident
+             T039_003:      Staff or Owner
+             T039_004:      Family Member or Partner of Staff or Owner
+
+
+      43. Qualifications (Highest Attainment)
+          Universe:  All usual residents aged 16 and over
+          Name:      T40
+          Variables:
+             T040_001:   All Usual Residents Aged 16 and Over:
+             T040_002:      No Qualifications (No Academic or Professional Qualifications)
+             T040_003:      Level 1 Qualifications (Introductory Certificate)
+             T040_004:      Level 2 Qualifications (Extended Certificate)
+             T040_005:      Apprenticeship
+             T040_006:      Level 3 Qualifications (Advanced Diploma)
+             T040_007:      Level 4 Qualifications and Above (Professional Certificate/Diploma)
+             T040_008:      Other Qualifications
+
+
+      44. Economic Activity
+          Universe:  All usual residents aged 16 to 74
+          Name:      T41
+          Variables:
+             T041_001:   All Usual Residents Aged 16 to 74:
+             T041_002:      Economically Active:
+             T041_003:         Employed:
+             T041_004:            Part-Time
+             T041_005:            Full-Time
+             T041_006:            Self-Employed
+             T041_007:            Full-Time Student
+             T041_008:         Unemployed
+             T041_009:      Economically Inactive:
+             T041_010:         Retired
+             T041_011:         Student (Unemployed Including Full-Time Students)
+             T041_012:         Looking After Home or Family
+             T041_013:         Long-Term Sick or Disabled
+             T041_014:         Other
+
+
+      45. Economic Activity - Male
+          Universe:  All usual male residents aged 16 to 74
+          Name:      T42
+          Variables:
+             T042_001:   Male Population Aged 16 to 74:
+             T042_002:      Economically Active:
+             T042_003:         Employed:
+             T042_004:            Part-Time
+             T042_005:            Full-Time
+             T042_006:            Self-Employed
+             T042_007:            Full-Time Student
+             T042_008:         Unemployed
+             T042_009:      Economically Inactive:
+             T042_010:         Retired
+             T042_011:         Student (Including Full-Time Students)
+             T042_012:         Looking After Home or Family
+             T042_013:         Long-Term Sick or Disabled
+             T042_014:         Other
+
+
+      46. Economic Activity - Female
+          Universe:  All usual female residents aged 16 to 74
+          Name:      T43
+          Variables:
+             T043_001:   Female Population Aged 16 to 74:
+             T043_002:      Economically Active:
+             T043_003:         Employed:
+             T043_004:            Part-Time
+             T043_005:            Full-Time
+             T043_006:            Self-Employed
+             T043_007:            Full-Time Student
+             T043_008:         Unemployed
+             T043_009:      Economically Inactive:
+             T043_010:         Retired
+             T043_011:         Student (Including Full-Time Students)
+             T043_012:         Looking After Home or Family
+             T043_013:         Long-Term Sick or Disabled
+             T043_014:         Other
+
+
+      47. Unemployment Rate
+          Universe:  All usual residents aged 16 to 74
+          Name:      T44
+          Variables:
+             T044_001:   All Usual Residents Age 16 to 74 in Labor Force (Economically Active):
+             T044_002:      Unemployed
+
+
+      48. Unemployment Rate - Male
+          Universe:  All usual male residents aged 16 to 74
+          Name:      T45
+          Variables:
+             T045_001:   Male Population Age 16 to 74 in Labor Force (Economically Active):
+             T045_002:      Unemployed Male
+
+
+      49. Unemployment Rate - Female
+          Universe:  All usual female residents aged 16 to 74
+          Name:      T46
+          Variables:
+             T046_001:   Female Population Age 16 to 74 in Labor Force (Economically Active):
+             T046_002:      Unemployed Female
+
+
+      50. Hours Worked
+          Universe:  All usual residents aged 16 to 74 in employment the week before the census
+          Name:      T47
+          Variables:
+             T047_001:   All Usual Residents Aged 16 to 74 in Employment the Week Before the Census:
+             T047_002:      Part-Time:
+             T047_003:         15 Hours or Less Worked
+             T047_004:         16 to 30 Hours Worked
+             T047_005:      Full-Time:
+             T047_006:         31 to 48 Hours Worked
+             T047_007:         49 or More Hours Worked
+
+
+      51. Hours Worked - Male
+          Universe:  All usual male residents aged 16 to 74 in employment the week before the census
+          Name:      T48
+          Variables:
+             T048_001:   Male Aged 16 to 74 in Employment:
+             T048_002:      Part-Time:
+             T048_003:         15 Hours or Less Worked
+             T048_004:         16 to 30 Hours Worked
+             T048_005:      Full-Time:
+             T048_006:         31 to 48 Hours Worked
+             T048_007:         49 or More Hours Worked
+
+
+      52. Hours Worked - Female
+          Universe:  All usual female residents aged 16 to 74 in employment the week before the census
+          Name:      T49
+          Variables:
+             T049_001:   Female Aged 16 to 74 in Employment:
+             T049_002:      Part-Time:
+             T049_003:         15 Hours or Less Worked
+             T049_004:         16 to 30 Hours Worked
+             T049_005:      Full-Time:
+             T049_006:         31 to 48 Hours Worked
+             T049_007:         49 or More Hours Worked
+
+
+      53. Industry
+          Universe:  All usual residents aged 16 to 74 in employment the week before the Census
+          Name:      T50
+          Variables:
+             T050_001:   All Usual Residents Aged 16 to 74 in Employment the Week Before the Census:
+             T050_002:      Agriculture, Forestry and Fishing
+             T050_003:      Mining and Quarrying
+             T050_004:      Manufacturing:
+             T050_005:         Food, Beverages and Tobacco
+             T050_006:         Textiles, Wearing Apparel and Leather and Related Products
+             T050_007:         Wood, Paper and Paper Products
+             T050_008:         Chemicals, Chemical Products, Rubber and Plastic
+             T050_009:         Low Tech
+             T050_010:         High Tech
+             T050_011:         Other
+             T050_012:      Electricity, Gas, Steam and Air Conditioning Supply
+             T050_013:      Water Supply, Sewerage, Waste Management and Remediation Activities
+             T050_014:      Construction
+             T050_015:      Wholesale and Retail Trade; Repair of Motor Vehicles and Motor Cycles
+             T050_016:      Transport and Storage
+             T050_017:      Accommodation and Food Service Activities
+             T050_018:      Information and Communication
+             T050_019:      Financial and Insurance Activities
+             T050_020:      Real Estate Activities
+             T050_021:      Professional, Scientific and Technical Activities
+             T050_022:      Administrative and Support Service Activities
+             T050_023:      Public Administration and Defence; Compulsory Social Security
+             T050_024:      Education
+             T050_025:      Human Health and Social Work Activities
+             T050_026:      Arts, Entertainment and Recreation; Other Service Activities
+             T050_027:      Activities of Households As Employers; Undifferentiated Goods - and Services - Producing Activities of Households For Own Use
+             T050_028:      Activities of Extraterritorial Organisations and Bodies
+
+
+      54. Industry - Male
+          Universe:  All usual male residents aged 16 to 74 in employment the week before the census
+          Name:      T51
+          Variables:
+             T051_001:   Male Aged 16 to 74 in Employment the Week Before the Census:
+             T051_002:      Agriculture, Forestry and Fishing
+             T051_003:      Mining and Quarrying
+             T051_004:      Manufacturing
+             T051_005:      Electricity, Gas, Steam and Air Conditioning Supply
+             T051_006:      Water Supply; Sewerage, Waste Management and Remediation Activities
+             T051_007:      Construction
+             T051_008:      Wholesale and Retail Trade; Repair of Motor Vehicles and Motor Cycles
+             T051_009:      Transport and Storage
+             T051_010:      Accommodation and Food Service Activities
+             T051_011:      Information and Communication
+             T051_012:      Financial and Insurance Activities
+             T051_013:      Real Estate Activities
+             T051_014:      Professional, Scientific and Technical Activities
+             T051_015:      Administrative and Support Service Activities
+             T051_016:      Public Administration and Defence; Compulsory Social Security
+             T051_017:      Education
+             T051_018:      Human Health and Social Work Activities
+             T051_019:      Other
+
+
+      55. Industry - Female
+          Universe:  All usual female residents aged 16 to 74 in employment the week before the census
+          Name:      T52
+          Variables:
+             T052_001:   Female Aged 16 to 74 in Employment the Week Before the Census:
+             T052_002:      Agriculture, Forestry and Fishing
+             T052_003:      Mining and Quarrying
+             T052_004:      Manufacturing
+             T052_005:      Electricity, Gas, Steam and Air Conditioning Supply
+             T052_006:      Water Supply; Sewerage, Waste Management and Remediation Activities
+             T052_007:      Construction
+             T052_008:      Wholesale and Retail Trade; Repair of Motor Vehicles and Motor Cycles
+             T052_009:      Transport and Storage
+             T052_010:      Accommodation and Food Service Activities
+             T052_011:      Information and Communication
+             T052_012:      Financial and Insurance Activities
+             T052_013:      Real Estate Activities
+             T052_014:      Professional, Scientific and Technical Activities
+             T052_015:      Administrative and Support Service Activities
+             T052_016:      Public Administration and Defence; Compulsory Social Security
+             T052_017:      Education
+             T052_018:      Human Health and Social Work Activities
+             T052_019:      Other
+
+
+      56. Occupation
+          Universe:  All usual residents aged 16 to 74 in employment the week before the census
+          Name:      T53
+          Variables:
+             T053_001:   All Usual Residents Aged 16 to 74 in Employment the Week Before the Census:
+             T053_002:      Managers, Directors and Senior Officials
+             T053_003:      Professional Occupations
+             T053_004:      Associate Professional and Technical Occupations
+             T053_005:      Administrative and Secretarial Occupations
+             T053_006:      Skilled Trades Occupations
+             T053_007:      Caring, Leisure and Other Service Occupations
+             T053_008:      Sales and Customer Service Occupations
+             T053_009:      Process, Plant and Machine Operatives
+             T053_010:      Elementary Occupations
+
+
+      57. Occupation - Male
+          Universe:  All usual residents aged 16 to 74 in employment the week before the census
+          Name:      T54
+          Variables:
+             T054_001:   Male Aged 16 to 74 in Employment the Week Before the Census:
+             T054_002:      Managers, Directors and Senior Officials
+             T054_003:      Professional Occupations
+             T054_004:      Associate Professional and Technical Occupations
+             T054_005:      Administrative and Secretarial Occupations
+             T054_006:      Skilled Trades Occupations
+             T054_007:      Caring, Leisure and Other Service Occupations
+             T054_008:      Sales and Customer Service Occupations
+             T054_009:      Process, Plant and Machine Operatives
+             T054_010:      Elementary Occupations
+
+
+      58. Occupation - Female
+          Universe:  All usual residents aged 16 to 74 in employment the week before the census
+          Name:      T55
+          Variables:
+             T055_001:   Female Aged 16 to 74 in Employment the Week Before the Census:
+             T055_002:      Managers, Directors and Senior Officials
+             T055_003:      Professional Occupations
+             T055_004:      Associate Professional and Technical Occupations
+             T055_005:      Administrative and Secretarial Occupations
+             T055_006:      Skilled Trades Occupations
+             T055_007:      Caring, Leisure and Other Service Occupations
+             T055_008:      Sales and Customer Service Occupations
+             T055_009:      Process, Plant and Machine Operatives
+             T055_010:      Elementary Occupations
+
+
+      59. Occupation (Detailed)
+          Universe:  All usual residents aged 16 to 74 in employment the week before the Census
+          Name:      T56
+          Variables:
+             T056_001:   All Usual Residents Aged 16 to 74 in Employment the Week Before the Census:
+             T056_002:      Managers, Directors and Senior Officials:
+             T056_003:         Corporate Managers and Directors
+             T056_004:         Other Managers and Proprietors
+             T056_005:      Professional Occupations:
+             T056_006:         Science, Research, Engineering and Technology Professionals
+             T056_007:         Health Professionals
+             T056_008:         Teaching and Educational Professionals
+             T056_009:         Business, Media and Public Service Professionals
+             T056_010:      Associate Professional and Technical Occupations:
+             T056_011:         Science, Engineering and Technology Associate Professionals
+             T056_012:         Health and Social Care Associate Professionals
+             T056_013:         Protective Service Occupations
+             T056_014:         Culture, Media and Sports Occupations
+             T056_015:         Business and Public Service Associate Professionals
+             T056_016:      Administrative and Secretarial Occupations:
+             T056_017:         Administrative Occupations
+             T056_018:         Secretarial and Related Occupations
+             T056_019:      Skilled Trades Occupations:
+             T056_020:         Skilled Agricultural and Related Trades
+             T056_021:         Skilled Metal, Electrical and Electronic Trades
+             T056_022:         Skilled Construction and Building Trades
+             T056_023:         Textiles, Printing and Other Skilled Trades
+             T056_024:      Caring, Leisure and Other Service Occupations:
+             T056_025:         Caring Personal Service Occupations
+             T056_026:         Leisure, Travel and Related Personal Service Occupations
+             T056_027:      Sales and Customer Service Occupations:
+             T056_028:         Sales Occupations
+             T056_029:         Customer Service Occupations
+             T056_030:      Process, Plant and Machine Operatives:
+             T056_031:         Process, Plant and Machine Operatives
+             T056_032:         Transport and Mobile Machine Drivers and Operatives
+             T056_033:      Elementary Occupations:
+             T056_034:         Elementary Trades and Related Occupations
+             T056_035:         Elementary Administration and Service Occupations
+
+
+      60. Socio-Economic Classification
+          Universe:  All usual residents aged 16 to 74
+          Name:      T57
+          Variables:
+             T057_001:   All Usual Residents Aged 16 to 74:
+             T057_002:      Higher Managerial, Administrative and Professional Occupations:
+             T057_003:         Large Employers and Higher Managerial and Administrative Occupations
+             T057_004:         Higher Professional Occupations
+             T057_005:      Lower Managerial, Administrative and Professional Occupations
+             T057_006:      Intermediate Occupations
+             T057_007:      Small Employers and Own Account Workers
+             T057_008:      Lower Supervisory and Technical Occupations
+             T057_009:      Semi-Routine Occupations
+             T057_010:      Routine Occupations
+             T057_011:      Never Worked and Long-Term Unemployed:
+             T057_012:         Never Worked
+             T057_013:         Long-Term Unemployed
+             T057_014:      Full-Time Students
+
+
+      61. Socio-Economic Classification - Male
+          Universe:  Male usual residents aged 16 to 74
+          Name:      T58
+          Variables:
+             T058_001:   Male Population Aged 16 to 74:
+             T058_002:      Higher Managerial, Administrative and Professional Occupations:
+             T058_003:         Large Employers and Higher Managerial and Administrative Occupations
+             T058_004:         Higher Professional Occupations
+             T058_005:      Lower Managerial, Administrative and Professional Occupations
+             T058_006:      Intermediate Occupations
+             T058_007:      Small Employers and Own Account Workers
+             T058_008:      Lower Supervisory and Technical Occupations
+             T058_009:      Semi-Routine Occupations
+             T058_010:      Routine Occupations
+             T058_011:      Never Worked and Long-Term Unemployed:
+             T058_012:         Never Worked
+             T058_013:         Long-Term Unemployed
+             T058_014:      Full-Time Students
+
+
+      62. Socio-Economic Classification- Female
+          Universe:  Female usual residents aged 16 to 74
+          Name:      T59
+          Variables:
+             T059_001:   Female Population Aged 16 to 74:
+             T059_002:      Higher Managerial, Administrative and Professional Occupations:
+             T059_003:         Large Employers and Higher Managerial and Administrative Occupations
+             T059_004:         Higher Professional Occupations
+             T059_005:      Lower Managerial, Administrative and Professional Occupations
+             T059_006:      Intermediate Occupations
+             T059_007:      Small Employers and Own Account Workers
+             T059_008:      Lower Supervisory and Technical Occupations
+             T059_009:      Semi-Routine Occupations
+             T059_010:      Routine Occupations
+             T059_011:      Never Worked and Long-Term Unemployed:
+             T059_012:         Never Worked
+             T059_013:         Long-Term Unemployed
+             T059_014:      Full-Time Students
+
+
+      63. Socio-Economic Classification (Detailed)
+          Universe:  All usual residents aged 16 to 74
+          Name:      T60
+          Variables:
+             T060_001:   All Usual Residents Aged 16 to 74:
+             T060_002:      Higher Managerial, Administrative and Professional Occupations:
+             T060_003:         Large Employers and Higher Managerial and Administrative Occupations
+             T060_004:         Higher Professional Occupations:
+             T060_005:            Traditional Employees
+             T060_006:            New Employees
+             T060_007:            Traditional Self-Employed
+             T060_008:            New Self-Employed
+             T060_009:      Lower Managerial, Administrative and Professional Occupations:
+             T060_010:         Lower Professional and Higher Technical Occupations:
+             T060_011:            Traditional Employees
+             T060_012:            New Employees
+             T060_013:            Traditional Self-Employed
+             T060_014:            New Self-Employed
+             T060_015:         Lower Managerial and Administrative Occupations
+             T060_016:         Higher Supervisory Occupations
+             T060_017:      Intermediate Occupations:
+             T060_018:         Intermediate Clerical and Administrative Occupations
+             T060_019:         Intermediate Sales and Service Occupations
+             T060_020:         Intermediate Technical and Auxiliary Occupations
+             T060_021:         Intermediate Engineering Occupations
+             T060_022:      Small Employers and Own Account Workers:
+             T060_023:         Employers in Small Establishments:
+             T060_024:            Employers in Small Establishments in Industry, Commerce, Services Etc.
+             T060_025:            Employers in Small Establishments in Agriculture
+             T060_026:         Own Account Workers:
+             T060_027:            Non-Professional
+             T060_028:            Agriculture
+             T060_029:      Lower Supervisory and Technical Occupations:
+             T060_030:         Lower Supervisory Occupations
+             T060_031:         Lower Technical Occupations:
+             T060_032:            Lower Technical Craft Occupations
+             T060_033:            Lower Technical Process Operative Occupations
+             T060_034:      Semi-Routine Occupations:
+             T060_035:         Sales Occupations
+             T060_036:         Service Occupations
+             T060_037:         Technical Occupations
+             T060_038:         Operative Occupations
+             T060_039:         Agricultural Occupations
+             T060_040:         Clerical Occupations
+             T060_041:         Childcare Occupations
+             T060_042:      Routine Occupations:
+             T060_043:         Sales and Service Occupations
+             T060_044:         Production Occupations
+             T060_045:         Technical Occupations
+             T060_046:         Operative Occupations
+             T060_047:         Agricultural Occupations
+             T060_048:      Never Worked and Long-Term Unemployed:
+             T060_049:         Never Worked
+             T060_050:         Long-Term Unemployed
+             T060_051:      Full-Time Students
+
+
+      64. Approximated Social Grade
+          Universe:  All Household Reference Persons aged 16 to 64
+          Name:      T61
+          Variables:
+             T061_001:   All Household Reference Persons Aged 16 to 64:
+             T061_002:      Approximated Social Grade Ab (Higher Professional Occupations)
+             T061_003:      Approximated Social Grade C1 (Supervisory Professional Occupations)
+             T061_004:      Approximated Social Grade C2 (Skilled Manual Occupations)
+             T061_005:      Approximated Social Grade De (Semi-Skilled Lowest Grade Occupations)
+
+
+      65. Year Last Worked
+          Universe:  All usual residents aged 16 to 74
+          Name:      T62
+          Variables:
+             T062_001:   Not Employed All Usual Residents Aged 16 to 74:
+             T062_002:      Last Worked in 2011
+             T062_003:      Last Worked in 2010
+             T062_004:      Last Worked in 2009
+             T062_005:      Last Worked in 2008
+             T062_006:      Last Worked in 2007
+             T062_007:      Last Worked in 2006
+             T062_008:      Last Worked in 2001 - 2005
+             T062_009:      Last Worked Before 2001
+             T062_010:      Never Worked
+
+
+
+
+
+ 
+ 
+ 
+--------------------------------------------------------------------------------
+Data Dictionary
+--------------------------------------------------------------------------------
+ 
+Variables 
+      Name:           Geography Name
+      QName:          Geography Qualifying Name
+      FIPS:           Summary Level Full Code
+      LA_CODE:        LA_CODE
+      T001_001:       All Usual Residents
+      T002_001:       All Usual Residents
+      T002_002:       Area (Hectares)
+      T002_003:       Density (Number of Persons Per Hectare)
+      T003_001:       All Usual Residents
+      T003_002:       Area (per Sq. Mile)
+      T003_003:       Density (Number of Persons per Sq. Mile)
+      T004_001:       All Usual Residents
+      T004_002:       Area (per Sq. Kilometers)
+      T004_003:       Density (Number of Persons per Sq. Kilometers)
+      T005_001:       All Usual Residents
+      T005_002:       All Usual Residents: Male
+      T005_003:       All Usual Residents: Female
+      T006_001:       All Usual Residents
+      T006_002:       All Usual Residents: Under 5 Years
+      T006_003:       All Usual Residents: 5 to 9 Years
+      T006_004:       All Usual Residents: 10 to 14 Years
+      T006_005:       All Usual Residents: 15 to 17 Years
+      T006_006:       All Usual Residents: 18 to 24 Years
+      T006_007:       All Usual Residents: 25 to 29 Years
+      T006_008:       All Usual Residents: 30 to 44 Years
+      T006_009:       All Usual Residents: 45 to 59 Years
+      T006_010:       All Usual Residents: 60 to 64 Years
+      T006_011:       All Usual Residents: 65 to 74 Years
+      T006_012:       All Usual Residents: 75 to 84 Years
+      T006_013:       All Usual Residents: 85 Years and Over
+      T006A001:       All Usual Residents
+      T006A002:       All Usual Residents: Less than 5 Years
+      T006A003:       All Usual Residents: Less than 10 Years
+      T006A004:       All Usual Residents: Less than 15 Years
+      T006A005:       All Usual Residents: Less than 18 Years
+      T006A006:       All Usual Residents: Less than 25 Years
+      T006A007:       All Usual Residents: Less than 30 Years
+      T006A008:       All Usual Residents: Less than 45 Years
+      T006A009:       All Usual Residents: Less than 60 Years
+      T006A010:       All Usual Residents: Less than 65 Years
+      T006A011:       All Usual Residents: Less than 75 Years
+      T006A012:       All Usual Residents: Less than 85 Years
+      T006B001:       All Usual Residents
+      T006B002:       All Usual Residents: More than 5 Years
+      T006B003:       All Usual Residents: More than 10 Years
+      T006B004:       All Usual Residents: More than 15 Years
+      T006B005:       All Usual Residents: More than 18 Years
+      T006B006:       All Usual Residents: More than 25 Years
+      T006B007:       All Usual Residents: More than 30 Years
+      T006B008:       All Usual Residents: More than 45 Years
+      T006B009:       All Usual Residents: More than 60 Years
+      T006B010:       All Usual Residents: More than 65 Years
+      T006B011:       All Usual Residents: More than 75 Years
+      T006B012:       All Usual Residents: More than 85 Years
+      T007_001:       All Usual Residents
+      T007_002:       All Usual Residents: Under 5 Years
+      T007_003:       All Usual Residents: 5 to 9 Years
+      T007_004:       All Usual Residents: 10 to 14 Years
+      T007_005:       All Usual Residents: 15 to 17 Years
+      T007_006:       All Usual Residents: 18 and 19 Years
+      T007_007:       All Usual Residents: 20 Years
+      T007_008:       All Usual Residents: 21 Years
+      T007_009:       All Usual Residents: 22 to 24 Years
+      T007_010:       All Usual Residents: 25 to 29 Years
+      T007_011:       All Usual Residents: 30 to 34 Years
+      T007_012:       All Usual Residents: 35 to 39 Years
+      T007_013:       All Usual Residents: 40 to 44 Years
+      T007_014:       All Usual Residents: 45 to 49 Years
+      T007_015:       All Usual Residents: 50 to 54 Years
+      T007_016:       All Usual Residents: 55 to 59 Years
+      T007_017:       All Usual Residents: 60 and 61 Years
+      T007_018:       All Usual Residents: 62 to 64 Years
+      T007_019:       All Usual Residents: 65 and 66 Years
+      T007_020:       All Usual Residents: 67 to 69 Years
+      T007_021:       All Usual Residents: 70 to 74 Years
+      T007_022:       All Usual Residents: 75 to 79 Years
+      T007_023:       All Usual Residents: 80 to 84 Years
+      T007_024:       All Usual Residents: 85 Years and Over
+      T007A001:       All Usual Residents
+      T007A002:       All Usual Residents: Less than 5 Years
+      T007A003:       All Usual Residents: Less than 10 Years
+      T007A004:       All Usual Residents: Less than 15 Years
+      T007A005:       All Usual Residents: Less than 18 Years
+      T007A006:       All Usual Residents: Less than 20 Years
+      T007A007:       All Usual Residents: Less than 21 Years
+      T007A008:       All Usual Residents: Less than 22 Years
+      T007A009:       All Usual Residents: Less than 25 Years
+      T007A010:       All Usual Residents: Less than 30 Years
+      T007A011:       All Usual Residents: Less than 35 Years
+      T007A012:       All Usual Residents: Less than 40 Years
+      T007A013:       All Usual Residents: Less than 45 Years
+      T007A014:       All Usual Residents: Less than 50 Years
+      T007A015:       All Usual Residents: Less than 55 Years
+      T007A016:       All Usual Residents: Less than 60 Years
+      T007A017:       All Usual Residents: Less than 62 Years
+      T007A018:       All Usual Residents: Less than 65 Years
+      T007A019:       All Usual Residents: Less than 67 Years
+      T007A020:       All Usual Residents: Less than 70 Years
+      T007A021:       All Usual Residents: Less than 75 Years
+      T007A022:       All Usual Residents: Less than 80 Years
+      T007A023:       All Usual Residents: Less than 85 Years
+      T007B001:       All Usual Residents
+      T007B002:       All Usual Residents: More than 5 Years
+      T007B003:       All Usual Residents: More than 10 Years
+      T007B004:       All Usual Residents: More than 15 Years
+      T007B005:       All Usual Residents: More than 18 Years
+      T007B006:       All Usual Residents: More than 20 Years
+      T007B007:       All Usual Residents: More than 21 Years
+      T007B008:       All Usual Residents: More than 22 Years
+      T007B009:       All Usual Residents: More than 25 Years
+      T007B010:       All Usual Residents: More than 30 Years
+      T007B011:       All Usual Residents: More than 35 Years
+      T007B012:       All Usual Residents: More than 40 Years
+      T007B013:       All Usual Residents: More than 45 Years
+      T007B014:       All Usual Residents: More than 50 Years
+      T007B015:       All Usual Residents: More than 55 Years
+      T007B016:       All Usual Residents: More than 60 Years
+      T007B017:       All Usual Residents: More than 62 Years
+      T007B018:       All Usual Residents: More than 65 Years
+      T007B019:       All Usual Residents: More than 67 Years
+      T007B020:       All Usual Residents: More than 70 Years
+      T007B021:       All Usual Residents: More than 75 Years
+      T007B022:       All Usual Residents: More than 80 Years
+      T007B023:       All Usual Residents: More than 85 Years
+      T008_001:       All Usual Residents
+      T008_002:       All Usual Residents: Under 18 Years
+      T008_003:       All Usual Residents: 18 to 34 Years
+      T008_004:       All Usual Residents: 35 to 64 Years
+      T008_005:       All Usual Residents: 65 and Over
+      T009_001:       Mean Age
+      T009_002:       Median Age
+      T010_001:       All Usual Residents
+      T010_002:       All Usual Residents: Lives in a Household
+      T010_003:       All Usual Residents: Lives in a Communal Establishment
+      T011_001:       All Usual Residents Aged 16 and Over
+      T011_002:       All Usual Residents Aged 16 and Over: Single (Never Married or Never Registered a Same-Sex Civil Partnership)
+      T011_003:       All Usual Residents Aged 16 and Over: Married
+      T011_004:       All Usual Residents Aged 16 and Over: In a Registered Same-Sex Civil Partnership
+      T011_005:       All Usual Residents Aged 16 and Over: Separated (But Still Legally Married or Still Legally in a Same-Sex Civil Partnership)
+      T011_006:       All Usual Residents Aged 16 and Over: Divorced or Formerly in a Same-Sex Civil Partnership Which Is Now Legally Dissolved
+      T011_007:       All Usual Residents Aged 16 and Over: Widowed or Surviving Partner From a Same-Sex Civil Partnership
+      T012_001:       All Usual Residents Aged 16 and Over in Households
+      T012_002:       All Usual Residents Aged 16 and Over in Households: Living in a Couple
+      T012_003:       All Usual Residents Aged 16 and Over in Households: Living in a Couple: Married or in a Registered Same-Sex Civil Partnership
+      T012_004:       All Usual Residents Aged 16 and Over in Households: Living in a Couple: Cohabiting
+      T012_005:       All Usual Residents Aged 16 and Over in Households: Not Living in a Couple
+      T012_006:       All Usual Residents Aged 16 and Over in Households: Not Living in a Couple: Single (Never Married or Never Registered a Same-Sex Civil Partnership)
+      T012_007:       All Usual Residents Aged 16 and Over in Households: Not Living in a Couple: Married or in a Registered Same-Sex Civil Partnership
+      T012_008:       All Usual Residents Aged 16 and Over in Households: Not Living in a Couple: Separated (But Still Legally Married or Still Legally in a Same-Sex Civil Partnership)
+      T012_009:       All Usual Residents Aged 16 and Over in Households: Not Living in a Couple: Divorced or Formerly in a Same-Sex Civil Partnership Which Is Now Legally Dissolved
+      T012_010:       All Usual Residents Aged 16 and Over in Households: Not Living in a Couple: Widowed or Surviving Partner From a Same-Sex Civil Partnership
+      T013_001:       All Households
+      T013_002:       All Households: One Person Household
+      T013_003:       All Households: One Person Household: Aged 65 and Over
+      T013_004:       All Households: One Person Household: Other
+      T013_005:       All Households: One Family Only
+      T013_006:       All Households: One Family Only: All Aged 65 and Over
+      T013_007:       All Households: One Family Only: Married or Same-Sex Civil Partnership Couple
+      T013_008:       All Households: One Family Only: Married or Same-Sex Civil Partnership Couple: No Children
+      T013_009:       All Households: One Family Only: Married or Same-Sex Civil Partnership Couple: Dependent Children
+      T013_010:       All Households: One Family Only: Married or Same-Sex Civil Partnership Couple: All Children Non-Dependent
+      T013_011:       All Households: One Family Only: Cohabiting Couple
+      T013_012:       All Households: One Family Only: Cohabiting Couple: No Children
+      T013_013:       All Households: One Family Only: Cohabiting Couple: Dependent Children
+      T013_014:       All Households: One Family Only: Cohabiting Couple: All Children Non-Dependent
+      T013_015:       All Households: One Family Only: Lone Parent
+      T013_016:       All Households: One Family Only: Lone Parent: Dependent Children
+      T013_017:       All Households: One Family Only: Lone Parent: All Children Non-Dependent
+      T013_018:       All Households: Other Household Types
+      T013_019:       All Households: Other Household Types: With Dependent Children
+      T013_020:       All Households: Other Household Types: All Full-Time Students
+      T013_021:       All Households: Other Household Types: All Aged 65 and Over
+      T013_022:       All Households: Other Household Types: Other
+      T014_001:       Lone Parent Households With Dependent Children
+      T014_002:       Lone Parent Households With Dependent Children: Lone Parent in Part-Time Employment
+      T014_003:       Lone Parent Households With Dependent Children: Lone Parent in Full-Time Employment
+      T014_004:       Lone Parent Households With Dependent Children: Lone Parent Not in Employment
+      T015_001:       Lone Parent Households With Dependent Children
+      T015_002:       Lone Parent Households With Dependent Children: Male Lone Parent
+      T015_003:       Lone Parent Households With Dependent Children: Male Lone Parent: In Part-Time Employment
+      T015_004:       Lone Parent Households With Dependent Children: Male Lone Parent: In Full-Time Employment
+      T015_005:       Lone Parent Households With Dependent Children: Male Lone Parent: Not in Employment
+      T015_006:       Lone Parent Households With Dependent Children: Female Lone Parent
+      T015_007:       Lone Parent Households With Dependent Children: Female Lone Parent: In Part-Time Employment
+      T015_008:       Lone Parent Households With Dependent Children: Female Lone Parent: In Full-Time Employment
+      T015_009:       Lone Parent Households With Dependent Children: Female Lone Parent: Not In Employment
+      T016_001:       All Usual Residents
+      T016_002:       Europe:
+      T016_003:       United Kingdom:
+      T016_004:       England
+      T016_005:       Northern Ireland
+      T016_006:       Scotland
+      T016_007:       Wales
+      T016_008:       United Kingdom Not Otherwise Specified
+      T016_009:       Channel Islands and Isle of Man
+      T016_010:       Republic of Ireland
+      T016_011:       Other Europe:
+      T016_012:       EU Countries:
+      T016_013:       Germany
+      T016_014:       Lithuania
+      T016_015:       Poland
+      T016_016:       Romania
+      T016_017:       Other EU  Countries
+      T016_018:       Rest of Europe:
+      T016_019:       Turkey
+      T016_020:       Other Europe
+      T016_021:       Africa:
+      T016_022:       North Africa
+      T016_023:       Central and Western Africa:
+      T016_024:       Nigeria
+      T016_025:       Other Central and Western Africa
+      T016_026:       South and Eastern Africa:
+      T016_027:       Kenya
+      T016_028:       South Africa
+      T016_029:       Zimbabwe
+      T016_030:       Other South and Eastern Africa
+      T016_031:       Asia:
+      T016_032:       Middle East:
+      T016_033:       Iran
+      T016_034:       Other Middle East
+      T016_035:       Eastern Asia:
+      T016_036:       China
+      T016_037:       Hong Kong (Special Administrative Region of China)
+      T016_038:       Other Eastern Asia
+      T016_039:       Southern Asia:
+      T016_040:       Bangladesh
+      T016_041:       India
+      T016_042:       Pakistan
+      T016_043:       Other Southern Asia
+      T016_044:       South-East Asia:
+      T016_045:       Central Asia
+      T016_046:       The Americas and the Caribbean:
+      T016_047:       North America and the Caribbean:
+      T016_048:       The Caribbean
+      T016_049:       United States of America
+      T016_050:       Other North America
+      T016_051:       Central America
+      T016_052:       South America
+      T016_053:       Antarctica and Oceania:
+      T016_054:       Australia
+      T016_055:       Other Antarctia and Oceania
+      T016_056:       Other
+      T017_001:       All Usual Residents
+      T017_002:       All Usual Residents: White
+      T017_003:       All Usual Residents: Gypsy/Traveller/Irish Traveller
+      T017_004:       All Usual Residents: Mixed/Multiple Ethnic Groups
+      T017_005:       All Usual Residents: Asian/Asian British
+      T017_006:       All Usual Residents: Asian / Asian British: Indian
+      T017_007:       All Usual Residents: Asian / Asian British: Pakistani
+      T017_008:       All Usual Residents: Asian / Asian British: Bangladeshi
+      T017_009:       All Usual Residents: Asian / Asian British: Chinese
+      T017_010:       All Usual Residents: Asian / Asian British: Other Asian
+      T017_011:       All Usual Residents: Black/African/Caribbean/Black British
+      T017_012:       All Usual Residents: Other Ethnic Group
+      T018_001:       All Usual Residents:
+      T018_002:       All Usual Residents: Native Born (United Kingdom)
+      T018_003:       All Usual Residents: Foreign Born
+      T020_001:       All Usual Residents
+      T020_002:       All Usual Residents: Day-To-Day Activities Limited a Lot
+      T020_003:       All Usual Residents: Day-To-Day Activities Limited a Little
+      T020_004:       All Usual Residents: Day-To-Day Activities Not Limited
+      T021_001:       Residents Age 16 to 64
+      T021_002:       Day-To-Day Activities Limited a Lot
+      T021_003:       Day-To-Day Activities Limited a Little
+      T021_004:       Day-To-Day Activities Not Limited
+      T022_001:       All Usual Residents
+      T022_002:       All Usual Residents: Very Good Health
+      T022_003:       All Usual Residents: Good Health
+      T022_004:       All Usual Residents: Fair Health
+      T022_005:       All Usual Residents: Bad Health
+      T022_006:       All Usual Residents: Very Bad Health
+      T023_001:       All Usual Residents
+      T023_002:       All Usual Residents: Provides No Unpaid Care
+      T023_003:       All Usual Residents: Provides 1 to 19 Hours
+      T023_004:       All Usual Residents: Provides 20 to 49 Hours
+      T023_005:       All Usual Residents: Provides 50 or More Hours
+      T024_001:       Dwellings
+      T024_002:       Dwellings: Unshared Dwelling
+      T024_003:       Dwellings: Shared Dwelling
+      T025_001:       All Household Spaces
+      T025_002:       All Household Spaces: Household Spaces With at Least One Usual Resident
+      T025_003:       All Household Spaces: Household Spaces With No Usual Residents
+      T026_001:       All Household Spaces:
+      T026_002:       All Household Spaces: Whole House or Bungalow
+      T026_003:       All Household Spaces: Whole House or Bungalow: Detached
+      T026_004:       All Household Spaces: Whole House or Bungalow: Semi-Detached
+      T026_005:       All Household Spaces: Whole House or Bungalow: Terraced (Including End-Terrace)
+      T026_006:       All Household Spaces: Flat, Maisonette or Apartment
+      T026_007:       All Household Spaces: Flat, Maisonette or Apartment: Purpose-Built Block of Flats or Tenement
+      T026_008:       All Household Spaces: Flat, Maisonette or Apartment: Part of a Converted or Shared House (Including Bed-Sits)
+      T026_009:       All Household Spaces: Flat, Maisonette or Apartment: In a Commercial Building
+      T026_010:       All Household Spaces: Caravan or Other Mobile or Temporary Structure
+      T027_001:       All Households:
+      T027_002:       All Households: Owned
+      T027_003:       All Households: Owned: Owned Outright
+      T027_004:       All Households: Owned: Owned With a Mortgage or Loan
+      T027_005:       All Households: Shared Ownership (Part Owned and Part Rented)
+      T027_006:       All Households: Rented
+      T027_007:       All Households: Rented: Private Landlord or Letting Agency
+      T027_008:       All Households: Rented: Private Other
+      T027_009:       All Households: Rented: Social Rented From Council (Local Authority)
+      T027_010:       All Households: Rented: Social Rented Other
+      T027_011:       All Households: Living Rent Free
+      T028_001:       All Household Spaces With at Least One Usual Resident:
+      T028_002:       All Household Spaces With at Least One Usual Resident: Owned
+      T028_003:       All Household Spaces With at Least One Usual Resident: Shared Ownership (Part Owned and Part Rented)
+      T028_004:       All Household Spaces With at Least One Usual Resident: Rented
+      T028_005:       All Household Spaces With at Least One Usual Resident: Living Rent Free
+      T029_001:       Household Spaces
+      T029_002:       Household Spaces: 1 Person in Household
+      T029_003:       Household Spaces: 2 People in Household
+      T029_004:       Household Spaces: 3 People in Household
+      T029_005:       Household Spaces: 4 People in Household
+      T029_006:       Household Spaces: 5 People in Household
+      T029_007:       Household Spaces: 6 People in Household
+      T029_008:       Household Spaces: 7 People in Household
+      T029_009:       Household Spaces: 8 or More People in Household
+      T030_001:       Households
+      T030_002:       Households: Up to 0.5 Persons Per Room
+      T030_003:       Households: Over 0.5 and Up to 1.0 Persons Per Room
+      T030_004:       Households: Over 1.0 and Up to 1.5 Persons Per Room
+      T030_005:       Households: Over 1.5 Persons Per Room
+      T031_001:       All Household Spaces With at Least One Usual Resident
+      T031_002:       1 Room
+      T031_003:       2 Rooms
+      T031_004:       3 Rooms
+      T031_005:       4 Rooms
+      T031_006:       5 Rooms
+      T031_007:       6 Rooms
+      T031_008:       7 Rooms
+      T031_009:       8 Rooms
+      T031_010:       9 or More Rooms
+      T032_001:       All Household Spaces With at Least One Usual Resident
+      T032_002:       All Household Spaces With at Least One Usual Resident: No Central Heating
+      T032_003:       All Household Spaces With at Least One Usual Resident: Gas Central Heating
+      T032_004:       All Household Spaces With at Least One Usual Resident: Electric (Including Storage Heaters) Central Heating
+      T032_005:       All Household Spaces With at Least One Usual Resident: Oil Central Heating
+      T032_006:       All Household Spaces With at Least One Usual Resident: Solid Fuel (For Example Wood, Coal) Central Heating
+      T032_007:       All Household Spaces With at Least One Usual Resident: Other Central Heating
+      T032_008:       All Household Spaces With at Least One Usual Resident: Two or More Types of Central Heating
+      T033_001:       All Households
+      T033_002:       All Households: Households With No Cars or Vans
+      T033_003:       All Households: Households With 1 Car or Van
+      T033_004:       All Households: Households With 2 Cars or Vans
+      T033_005:       All Households: Households With 3 Cars or Vans
+      T033_006:       All Households: Households With 4 or More Cars or Vans
+      T034_001:       Sum of All Cars or Vans
+      T035_001:       Average Cars or Vans per Household
+      T036_001:       All Communal Establishments
+      T037_001:       All Usual Residents in Communal Establishments
+      T037_002:       All Usual Residents in Communal Establishments: Medical and Care Establishment
+      T037_003:       All Usual Residents in Communal Establishments: Medical and Care Establishment: NHS (National Health Service) / HSCT (Haematopoietic Stem Cell Transplantation)
+      T037_004:       All Usual Residents in Communal Establishments: Medical and Care Establishment: NHS (National Health Service) / HSCT (Haematopoietic Stem Cell Transplantation): General Hospital
+      T037_005:       All Usual Residents in Communal Establishments: Medical and Care Establishment: NHS (National Health Service) / HSCT (Haematopoietic Stem Cell Transplantation): Mental Health Hospital/Unit (Including Secure Units)
+      T037_006:       All Usual Residents in Communal Establishments: Medical and Care Establishment: NHS (National Health Service) / HSCT (Haematopoietic Stem Cell Transplantation): Other Hospital
+      T037_007:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Local Authority
+      T037_008:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Local Authority: Children's Home (Including Secure Units)
+      T037_009:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Local Authority: Care Home With Nursing
+      T037_010:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Local Authority: Care Home Without Nursing
+      T037_011:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Local Authority: Other Home
+      T037_012:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Registered Social Landlord/Housing Association
+      T037_013:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Registered Social Landlord/Housing Association: Home or Hostel
+      T037_014:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Registered Social Landlord/Housing Association: Sheltered Housing Only
+      T037_015:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Other
+      T037_016:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Other: Care Home With Nursing
+      T037_017:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Other: Care Home Without Nursing
+      T037_018:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Other: Other: Children's Home (Including Secure Units)
+      T037_019:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Other: Mental Health Hospital/Unit (Including Secure Units)
+      T037_020:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Other: Other Hospital
+      T037_021:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Other: Other Establishment
+      T037_022:       All Usual Residents in Communal Establishments: Other Establishment
+      T037_023:       All Usual Residents in Communal Establishments: Other Establishment: Defence
+      T037_024:       All Usual Residents in Communal Establishments: Other Establishment: Prison Service
+      T037_025:       All Usual Residents in Communal Establishments: Other Establishment: Approved Premises (Probation/Bail Hostel)
+      T037_026:       All Usual Residents in Communal Establishments: Other Establishment: Detention Centres and Other Detention
+      T037_027:       All Usual Residents in Communal Establishments: Other Establishment: Education
+      T037_028:       All Usual Residents in Communal Establishments: Other Establishment: Hotel: Guest House; B&b; Youth Hostel
+      T037_029:       All Usual Residents in Communal Establishments: Other Establishment: Hostel or Temporary Shelter For the Homeless
+      T037_030:       All Usual Residents in Communal Establishments: Other Establishment: Holiday Accommodation (For Example Holiday Parks)
+      T037_031:       All Usual Residents in Communal Establishments: Other Establishment: Other Travel or Temporary Accommodation
+      T037_032:       All Usual Residents in Communal Establishments: Other Establishment: Religious
+      T037_033:       All Usual Residents in Communal Establishments: Other Establishment: Staff/Worker Accommodation Only
+      T037_034:       All Usual Residents in Communal Establishments: Other Establishment: Other
+      T038_001:       All Usual Residents in Communal Establishments
+      T038_002:       All Usual Residents in Communal Establishments: Medical and Care Establishment
+      T038_003:       All Usual Residents in Communal Establishments: Medical and Care Establishment: NHS (National Health Service) / HSCT (Haematopoietic Stem Cell Transplantation)
+      T038_004:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Local Authority
+      T038_005:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Registered Social Landlord/Housing Association
+      T038_006:       All Usual Residents in Communal Establishments: Medical and Care Establishment: Other
+      T038_007:       All Usual Residents in Communal Establishments: Other Establishment
+      T038_008:       All Usual Residents in Communal Establishments: Other Establishment: Defence
+      T038_009:       All Usual Residents in Communal Establishments: Other Establishment: Prison Service
+      T038_010:       All Usual Residents in Communal Establishments: Other Establishment: Approved Premises (Probation/Bail Hostel)
+      T038_011:       All Usual Residents in Communal Establishments: Other Establishment: Detention Centres and Other Detention
+      T038_012:       All Usual Residents in Communal Establishments: Other Establishment: Education
+      T038_013:       All Usual Residents in Communal Establishments: Other Establishment: Hotel: Guest House; B&b; Youth Hostel
+      T038_014:       All Usual Residents in Communal Establishments: Other Establishment: Hostel or Temporary Shelter For the Homeless
+      T038_015:       All Usual Residents in Communal Establishments: Other Establishment: Holiday Accommodation (For Example Holiday Parks)
+      T038_016:       All Usual Residents in Communal Establishments: Other Establishment: Other Travel or Temporary Accommodation
+      T038_017:       All Usual Residents in Communal Establishments: Other Establishment: Religious
+      T038_018:       All Usual Residents in Communal Establishments: Other Establishment: Staff/Worker Accommodation Only
+      T038_019:       All Usual Residents in Communal Establishments: Other Establishment: Other
+      T039_001:       All Usual Residents in Communal Establishments:
+      T039_002:       All Usual Residents in Communal Establishments: Resident
+      T039_003:       All Usual Residents in Communal Establishments: Staff or Owner
+      T039_004:       All Usual Residents in Communal Establishments: Family Member or Partner of Staff or Owner
+      T040_001:       All Usual Residents Aged 16 and Over
+      T040_002:       All Usual Residents Aged 16 and Over: No Qualifications (No Academic or Professional Qualifications)
+      T040_003:       All Usual Residents Aged 16 and Over: Level 1 Qualifications (Introductory Certificate)
+      T040_004:       All Usual Residents Aged 16 and Over: Level 2 Qualifications (Extended Certificate)
+      T040_005:       All Usual Residents Aged 16 and Over: Apprenticeship
+      T040_006:       All Usual Residents Aged 16 and Over: Level 3 Qualifications (Advanced Diploma)
+      T040_007:       All Usual Residents Aged 16 and Over: Level 4 Qualifications and Above (Professional Certificate/Diploma)
+      T040_008:       All Usual Residents Aged 16 and Over: Other Qualifications
+      T041_001:       All Usual Residents Aged 16 to 74
+      T041_002:       All Usual Residents Aged 16 to 74: Economically Active
+      T041_003:       All Usual Residents Aged 16 to 74: Economically Active: Employed
+      T041_004:       All Usual Residents Aged 16 to 74: Economically Active: Employed: Part-Time
+      T041_005:       All Usual Residents Aged 16 to 74: Economically Active: Employed: Full-Time
+      T041_006:       All Usual Residents Aged 16 to 74: Economically Active: Employed: Self-Employed
+      T041_007:       All Usual Residents Aged 16 to 74: Economically Active: Employed: Full-Time Student
+      T041_008:       All Usual Residents Aged 16 to 74: Economically Active: Unemployed
+      T041_009:       All Usual Residents Aged 16 to 74: Economically Inactive
+      T041_010:       All Usual Residents Aged 16 to 74: Economically Inactive: Retired
+      T041_011:       All Usual Residents Aged 16 to 74: Economically Inactive: Student (Unemployed Including Full-Time Students)
+      T041_012:       All Usual Residents Aged 16 to 74: Economically Inactive: Looking After Home or Family
+      T041_013:       All Usual Residents Aged 16 to 74: Economically Inactive: Long-Term Sick or Disabled
+      T041_014:       All Usual Residents Aged 16 to 74: Economically Inactive: Other
+      T042_001:       Male Population Aged 16 to 74
+      T042_002:       Male Population Aged 16 to 74: Economically Active
+      T042_003:       Male Population Aged 16 to 74: Economically Active: Employed
+      T042_004:       Male Population Aged 16 to 74: Economically Active: Employed: Part-Time
+      T042_005:       Male Population Aged 16 to 74: Economically Active: Employed: Full-Time
+      T042_006:       Male Population Aged 16 to 74: Economically Active: Employed: Self-Employed
+      T042_007:       Male Population Aged 16 to 74: Economically Active: Employed: Full-Time Student
+      T042_008:       Male Population Aged 16 to 74: Economically Active: Unemployed
+      T042_009:       Male Population Aged 16 to 74: Economically Inactive
+      T042_010:       Male Population Aged 16 to 74: Economically Inactive: Retired
+      T042_011:       Male Population Aged 16 to 74: Economically Inactive: Student (Including Full-Time Students)
+      T042_012:       Male Population Aged 16 to 74: Economically Inactive: Looking After Home or Family
+      T042_013:       Male Population Aged 16 to 74: Economically Inactive: Long-Term Sick or Disabled
+      T042_014:       Male Population Aged 16 to 74: Economically Inactive: Other
+      T043_001:       Female Population Aged 16 to 74
+      T043_002:       Female Population Aged 16 to 74: Economically Active
+      T043_003:       Female Population Aged 16 to 74: Economically Active: Employed
+      T043_004:       Female Population Aged 16 to 74: Economically Active: Employed: Part-Time
+      T043_005:       Female Population Aged 16 to 74: Economically Active: Employed: Full-Time
+      T043_006:       Female Population Aged 16 to 74: Economically Active: Employed: Self-Employed
+      T043_007:       Female Population Aged 16 to 74: Economically Active: Employed: Full-Time Student
+      T043_008:       Female Population Aged 16 to 74: Economically Active: Unemployed
+      T043_009:       Female Population Aged 16 to 74: Economically Inactive
+      T043_010:       Female Population Aged 16 to 74: Economically Inactive: Retired
+      T043_011:       Female Population Aged 16 to 74: Economically Inactive: Student (Including Full-Time Students)
+      T043_012:       Female Population Aged 16 to 74: Economically Inactive: Looking After Home or Family
+      T043_013:       Female Population Aged 16 to 74: Economically Inactive: Long-Term Sick or Disabled
+      T043_014:       Female Population Aged 16 to 74: Economically Inactive: Other
+      T044_001:       All Usual Residents Age 16 to 74 in Labor Force (Economically Active):
+      T044_002:       All Usual Residents Age 16 to 74 in Labor Force (Economically Active): Unemployed
+      T045_001:       Male Population Age 16 to 74 in Labor Force (Economically Active):
+      T045_002:       Male Population Age 16 to 74 in Labor Force (Economically Active): Unemployed Male
+      T046_001:       Total Female Population Age 16 to 74 in Labor Force (Economically Active):
+      T046_002:       Total Female Population Age 16 to 74 in Labor Force (Economically Active): Unemployed Female
+      T047_001:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census:
+      T047_002:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Part-Time
+      T047_003:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Part-Time: 15 Hours or Less Worked
+      T047_004:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Part-Time: 16 to 30 Hours Worked
+      T047_005:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Full-Time
+      T047_006:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Full-Time: 31 to 48 Hours Worked
+      T047_007:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Full-Time: 49 or More Hours Worked
+      T048_001:       Male Aged 16 to 74 in Employment:
+      T048_002:       Male Aged 16 to 74 in Employment: Part-Time
+      T048_003:       Male Aged 16 to 74 in Employment: Part-Time: 15 Hours or Less Worked
+      T048_004:       Male Aged 16 to 74 in Employment: Part-Time: 16 to 30 Hours Worked
+      T048_005:       Male Aged 16 to 74 in Employment: Full-Time
+      T048_006:       Male Aged 16 to 74 in Employment: Full-Time: 31 to 48 Hours Worked
+      T048_007:       Male Aged 16 to 74 in Employment: Full-Time: 49 or More Hours Worked
+      T049_001:       Female Aged 16 to 74 in Employment:
+      T049_002:       Female Aged 16 to 74 in Employment: Part-Time
+      T049_003:       Female Aged 16 to 74 in Employment: Part-Time: 15 Hours or Less Worked
+      T049_004:       Female Aged 16 to 74 in Employment: Part-Time: 16 to 30 Hours Worked
+      T049_005:       Female Aged 16 to 74 in Employment: Full-Time
+      T049_006:       Female Aged 16 to 74 in Employment: Full-Time: 31 to 48 Hours Worked
+      T049_007:       Female Aged 16 to 74 in Employment: Full-Time: 49 or More Hours Worked
+      T050_001:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census
+      T050_002:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Agriculture, Forestry and Fishing
+      T050_003:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Mining and Quarrying
+      T050_004:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Manufacturing
+      T050_005:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Manufacturing: Food, Beverages and Tobacco
+      T050_006:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Manufacturing: Textiles, Wearing Apparel and Leather and Related Products
+      T050_007:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Manufacturing: Wood, Paper and Paper Products
+      T050_008:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Manufacturing: Chemicals, Chemical Products, Rubber and Plastic
+      T050_009:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Manufacturing: Low Tech
+      T050_010:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Manufacturing: High Tech
+      T050_011:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Manufacturing: Other
+      T050_012:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Electricity, Gas, Steam and Air Conditioning Supply
+      T050_013:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Water Supply, Sewerage, Waste Management and Remediation Activities
+      T050_014:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Construction
+      T050_015:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Wholesale and Retail Trade; Repair of Motor Vehicles and Motor Cycles
+      T050_016:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Transport and Storage
+      T050_017:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Accommodation and Food Service Activities
+      T050_018:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Information and Communication
+      T050_019:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Financial and Insurance Activities
+      T050_020:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Real Estate Activities
+      T050_021:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Professional, Scientific and Technical Activities
+      T050_022:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Administrative and Support Service Activities
+      T050_023:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Public Administration and Defence; Compulsory Social Security
+      T050_024:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Education
+      T050_025:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Human Health and Social Work Activities
+      T050_026:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Arts, Entertainment and Recreation; Other Service Activities
+      T050_027:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Activities of Households As Employers; Undifferentiated Goods - and Services - Producing Activities of Households For Own Use
+      T050_028:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Activities of Extraterritorial Organisations and Bodies
+      T051_001:       Male Aged 16 to 74 in Employment the Week Before the Census:
+      T051_002:       Male Aged 16 to 74 in Employment the Week Before the Census: Agriculture, Forestry and Fishing
+      T051_003:       Male Aged 16 to 74 in Employment the Week Before the Census: Mining and Quarrying
+      T051_004:       Male Aged 16 to 74 in Employment the Week Before the Census: Manufacturing
+      T051_005:       Male Aged 16 to 74 in Employment the Week Before the Census: Electricity, Gas, Steam and Air Conditioning Supply
+      T051_006:       Male Aged 16 to 74 in Employment the Week Before the Census: Water Supply; Sewerage, Waste Management and Remediation Activities
+      T051_007:       Male Aged 16 to 74 in Employment the Week Before the Census: Construction
+      T051_008:       Male Aged 16 to 74 in Employment the Week Before the Census: Wholesale and Retail Trade; Repair of Motor Vehicles and Motor Cycles
+      T051_009:       Male Aged 16 to 74 in Employment the Week Before the Census: Transport and Storage
+      T051_010:       Male Aged 16 to 74 in Employment the Week Before the Census: Accommodation and Food Service Activities
+      T051_011:       Male Aged 16 to 74 in Employment the Week Before the Census: Information and Communication
+      T051_012:       Male Aged 16 to 74 in Employment the Week Before the Census: Financial and Insurance Activities
+      T051_013:       Male Aged 16 to 74 in Employment the Week Before the Census: Real Estate Activities
+      T051_014:       Male Aged 16 to 74 in Employment the Week Before the Census: Professional, Scientific and Technical Activities
+      T051_015:       Male Aged 16 to 74 in Employment the Week Before the Census: Administrative and Support Service Activities
+      T051_016:       Male Aged 16 to 74 in Employment the Week Before the Census: Public Administration and Defence; Compulsory Social Security
+      T051_017:       Male Aged 16 to 74 in Employment the Week Before the Census: Education
+      T051_018:       Male Aged 16 to 74 in Employment the Week Before the Census: Human Health and Social Work Activities
+      T051_019:       Male Aged 16 to 74 in Employment the Week Before the Census: Other
+      T052_001:       Female Aged 16 to 74 in Employment the Week Before the Census:
+      T052_002:       Female Aged 16 to 74 in Employment the Week Before the Census: Agriculture, Forestry and Fishing
+      T052_003:       Female Aged 16 to 74 in Employment the Week Before the Census: Mining and Quarrying
+      T052_004:       Female Aged 16 to 74 in Employment the Week Before the Census: Manufacturing
+      T052_005:       Female Aged 16 to 74 in Employment the Week Before the Census: Electricity, Gas, Steam and Air Conditioning Supply
+      T052_006:       Female Aged 16 to 74 in Employment the Week Before the Census: Water Supply; Sewerage, Waste Management and Remediation Activities
+      T052_007:       Female Aged 16 to 74 in Employment the Week Before the Census: Construction
+      T052_008:       Female Aged 16 to 74 in Employment the Week Before the Census: Wholesale and Retail Trade; Repair of Motor Vehicles and Motor Cycles
+      T052_009:       Female Aged 16 to 74 in Employment the Week Before the Census: Transport and Storage
+      T052_010:       Female Aged 16 to 74 in Employment the Week Before the Census: Accommodation and Food Service Activities
+      T052_011:       Female Aged 16 to 74 in Employment the Week Before the Census: Information and Communication
+      T052_012:       Female Aged 16 to 74 in Employment the Week Before the Census: Financial and Insurance Activities
+      T052_013:       Female Aged 16 to 74 in Employment the Week Before the Census: Real Estate Activities
+      T052_014:       Female Aged 16 to 74 in Employment the Week Before the Census: Professional, Scientific and Technical Activities
+      T052_015:       Female Aged 16 to 74 in Employment the Week Before the Census: Administrative and Support Service Activities
+      T052_016:       Female Aged 16 to 74 in Employment the Week Before the Census: Public Administration and Defence; Compulsory Social Security
+      T052_017:       Female Aged 16 to 74 in Employment the Week Before the Census: Education
+      T052_018:       Female Aged 16 to 74 in Employment the Week Before the Census: Human Health and Social Work Activities
+      T052_019:       Female Aged 16 to 74 in Employment the Week Before the Census: Other
+      T053_001:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census
+      T053_002:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Managers, Directors and Senior Officials
+      T053_003:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Professional Occupations
+      T053_004:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Associate Professional and Technical Occupations
+      T053_005:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Administrative and Secretarial Occupations
+      T053_006:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Skilled Trades Occupations
+      T053_007:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Caring, Leisure and Other Service Occupations
+      T053_008:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Sales and Customer Service Occupations
+      T053_009:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Process, Plant and Machine Operatives
+      T053_010:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Elementary Occupations
+      T054_001:       Male Aged 16 to 74 in Employment the Week Before the Census:
+      T054_002:       Male Aged 16 to 74 in Employment the Week Before the Census: Managers, Directors and Senior Officials
+      T054_003:       Male Aged 16 to 74 in Employment the Week Before the Census: Professional Occupations
+      T054_004:       Male Aged 16 to 74 in Employment the Week Before the Census: Associate Professional and Technical Occupations
+      T054_005:       Male Aged 16 to 74 in Employment the Week Before the Census: Administrative and Secretarial Occupations
+      T054_006:       Male Aged 16 to 74 in Employment the Week Before the Census: Skilled Trades Occupations
+      T054_007:       Male Aged 16 to 74 in Employment the Week Before the Census: Caring, Leisure and Other Service Occupations
+      T054_008:       Male Aged 16 to 74 in Employment the Week Before the Census: Sales and Customer Service Occupations
+      T054_009:       Male Aged 16 to 74 in Employment the Week Before the Census: Process, Plant and Machine Operatives
+      T054_010:       Male Aged 16 to 74 in Employment the Week Before the Census: Elementary Occupations
+      T055_001:       Female Aged 16 to 74 in Employment the Week Before the Census:
+      T055_002:       Female Aged 16 to 74 in Employment the Week Before the Census: Managers, Directors and Senior Officials
+      T055_003:       Female Aged 16 to 74 in Employment the Week Before the Census: Professional Occupations
+      T055_004:       Female Aged 16 to 74 in Employment the Week Before the Census: Associate Professional and Technical Occupations
+      T055_005:       Female Aged 16 to 74 in Employment the Week Before the Census: Administrative and Secretarial Occupations
+      T055_006:       Female Aged 16 to 74 in Employment the Week Before the Census: Skilled Trades Occupations
+      T055_007:       Female Aged 16 to 74 in Employment the Week Before the Census: Caring, Leisure and Other Service Occupations
+      T055_008:       Female Aged 16 to 74 in Employment the Week Before the Census: Sales and Customer Service Occupations
+      T055_009:       Female Aged 16 to 74 in Employment the Week Before the Census: Process, Plant and Machine Operatives
+      T055_010:       Female Aged 16 to 74 in Employment the Week Before the Census: Elementary Occupations
+      T056_001:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census
+      T056_002:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Managers, Directors and Senior Officials
+      T056_003:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Managers, Directors and Senior Officials: Corporate Managers and Directors
+      T056_004:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Managers, Directors and Senior Officials: Other Managers and Proprietors
+      T056_005:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Professional Occupations
+      T056_006:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Professional Occupations: Science, Research, Engineering and Technology Professionals
+      T056_007:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Professional Occupations: Health Professionals
+      T056_008:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Professional Occupations: Teaching and Educational Professionals
+      T056_009:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Professional Occupations: Business, Media and Public Service Professionals
+      T056_010:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Associate Professional and Technical Occupations
+      T056_011:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Associate Professional and Technical Occupations: Science, Engineering and Technology Associate Professionals
+      T056_012:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Associate Professional and Technical Occupations: Health and Social Care Associate Professionals
+      T056_013:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Associate Professional and Technical Occupations: Protective Service Occupations
+      T056_014:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Associate Professional and Technical Occupations: Culture, Media and Sports Occupations
+      T056_015:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Associate Professional and Technical Occupations: Business and Public Service Associate Professionals
+      T056_016:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Administrative and Secretarial Occupations
+      T056_017:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Administrative and Secretarial Occupations: Administrative Occupations
+      T056_018:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Administrative and Secretarial Occupations: Secretarial and Related Occupations
+      T056_019:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Skilled Trades Occupations
+      T056_020:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Skilled Trades Occupations: Skilled Agricultural and Related Trades
+      T056_021:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Skilled Trades Occupations: Skilled Metal, Electrical and Electronic Trades
+      T056_022:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Skilled Trades Occupations: Skilled Construction and Building Trades
+      T056_023:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Skilled Trades Occupations: Textiles, Printing and Other Skilled Trades
+      T056_024:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Caring, Leisure and Other Service Occupations
+      T056_025:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Caring, Leisure and Other Service Occupations: Caring Personal Service Occupations
+      T056_026:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Caring, Leisure and Other Service Occupations: Leisure, Travel and Related Personal Service Occupations
+      T056_027:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Sales and Customer Service Occupations
+      T056_028:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Sales and Customer Service Occupations: Sales Occupations
+      T056_029:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Sales and Customer Service Occupations: Customer Service Occupations
+      T056_030:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Process, Plant and Machine Operatives
+      T056_031:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Process, Plant and Machine Operatives: Process, Plant and Machine Operatives
+      T056_032:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Process, Plant and Machine Operatives: Transport and Mobile Machine Drivers and Operatives
+      T056_033:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Elementary Occupations
+      T056_034:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Elementary Occupations: Elementary Trades and Related Occupations
+      T056_035:       All Usual Residents Aged 16 to 74 in Employment the Week Before the Census: Elementary Occupations: Elementary Administration and Service Occupations
+      T057_001:       All Usual Residents Aged 16 to 74
+      T057_002:       All Usual Residents Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations
+      T057_003:       All Usual Residents Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Large Employers and Higher Managerial and Administrative Occupations
+      T057_004:       All Usual Residents Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Higher Professional Occupations
+      T057_005:       All Usual Residents Aged 16 to 74: Lower Managerial, Administrative and Professional Occupations
+      T057_006:       All Usual Residents Aged 16 to 74: Intermediate Occupations
+      T057_007:       All Usual Residents Aged 16 to 74: Small Employers and Own Account Workers
+      T057_008:       All Usual Residents Aged 16 to 74: Lower Supervisory and Technical Occupations
+      T057_009:       All Usual Residents Aged 16 to 74: Semi-Routine Occupations
+      T057_010:       All Usual Residents Aged 16 to 74: Routine Occupations
+      T057_011:       All Usual Residents Aged 16 to 74: Never Worked and Long-Term Unemployed
+      T057_012:       All Usual Residents Aged 16 to 74: Never Worked and Long-Term Unemployed: Never Worked
+      T057_013:       All Usual Residents Aged 16 to 74: Never Worked and Long-Term Unemployed: Long-Term Unemployed
+      T057_014:       All Usual Residents Aged 16 to 74: Full-Time Students
+      T058_001:       Male Population Aged 16 to 74
+      T058_002:       Male Population Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations
+      T058_003:       Male Population Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Large Employers and Higher Managerial and Administrative Occupations
+      T058_004:       Male Population Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Higher Professional Occupations
+      T058_005:       Male Population Aged 16 to 74: Lower Managerial, Administrative and Professional Occupations
+      T058_006:       Male Population Aged 16 to 74: Intermediate Occupations
+      T058_007:       Male Population Aged 16 to 74: Small Employers and Own Account Workers
+      T058_008:       Male Population Aged 16 to 74: Lower Supervisory and Technical Occupations
+      T058_009:       Male Population Aged 16 to 74: Semi-Routine Occupations
+      T058_010:       Male Population Aged 16 to 74: Routine Occupations
+      T058_011:       Male Population Aged 16 to 74: Never Worked and Long-Term Unemployed
+      T058_012:       Male Population Aged 16 to 74: Never Worked and Long-Term Unemployed: Never Worked
+      T058_013:       Male Population Aged 16 to 74: Never Worked and Long-Term Unemployed: Long-Term Unemployed
+      T058_014:       Male Population Aged 16 to 74: Full-Time Students
+      T059_001:       Female Population Aged 16 to 74
+      T059_002:       Female Population Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations
+      T059_003:       Female Population Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Large Employers and Higher Managerial and Administrative Occupations
+      T059_004:       Female Population Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Higher Professional Occupations
+      T059_005:       Female Population Aged 16 to 74: Lower Managerial, Administrative and Professional Occupations
+      T059_006:       Female Population Aged 16 to 74: Intermediate Occupations
+      T059_007:       Female Population Aged 16 to 74: Small Employers and Own Account Workers
+      T059_008:       Female Population Aged 16 to 74: Lower Supervisory and Technical Occupations
+      T059_009:       Female Population Aged 16 to 74: Semi-Routine Occupations
+      T059_010:       Female Population Aged 16 to 74: Routine Occupations
+      T059_011:       Female Population Aged 16 to 74: Never Worked and Long-Term Unemployed
+      T059_012:       Female Population Aged 16 to 74: Never Worked and Long-Term Unemployed: Never Worked
+      T059_013:       Female Population Aged 16 to 74: Never Worked and Long-Term Unemployed: Long-Term Unemployed
+      T059_014:       Female Population Aged 16 to 74: Full-Time Students
+      T060_001:       All Usual Residents Aged 16 to 74
+      T060_002:       All Usual Residents Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations
+      T060_003:       All Usual Residents Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Large Employers and Higher Managerial and Administrative Occupations
+      T060_004:       All Usual Residents Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Higher Professional Occupations
+      T060_005:       All Usual Residents Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Higher Professional Occupations: Traditional Employees
+      T060_006:       All Usual Residents Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Higher Professional Occupations: New Employees
+      T060_007:       All Usual Residents Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Higher Professional Occupations: Traditional Self-Employed
+      T060_008:       All Usual Residents Aged 16 to 74: Higher Managerial, Administrative and Professional Occupations: Higher Professional Occupations: New Self-Employed
+      T060_009:       All Usual Residents Aged 16 to 74: Lower Managerial, Administrative and Professional Occupations
+      T060_010:       All Usual Residents Aged 16 to 74: Lower Managerial, Administrative and Professional Occupations: Lower Professional and Higher Technical Occupations
+      T060_011:       All Usual Residents Aged 16 to 74: Lower Managerial, Administrative and Professional Occupations: Lower Professional and Higher Technical Occupations: Traditional Employees
+      T060_012:       All Usual Residents Aged 16 to 74: Lower Managerial, Administrative and Professional Occupations: Lower Professional and Higher Technical Occupations: New Employees
+      T060_013:       All Usual Residents Aged 16 to 74: Lower Managerial, Administrative and Professional Occupations: Lower Professional and Higher Technical Occupations: Traditional Self-Employed
+      T060_014:       All Usual Residents Aged 16 to 74: Lower Managerial, Administrative and Professional Occupations: Lower Professional and Higher Technical Occupations: New Self-Employed
+      T060_015:       All Usual Residents Aged 16 to 74: Lower Managerial, Administrative and Professional Occupations: Lower Managerial and Administrative Occupations
+      T060_016:       All Usual Residents Aged 16 to 74: Lower Managerial, Administrative and Professional Occupations: Higher Supervisory Occupations
+      T060_017:       All Usual Residents Aged 16 to 74: Intermediate Occupations
+      T060_018:       All Usual Residents Aged 16 to 74: Intermediate Occupations: Intermediate Clerical and Administrative Occupations
+      T060_019:       All Usual Residents Aged 16 to 74: Intermediate Occupations: Intermediate Sales and Service Occupations
+      T060_020:       All Usual Residents Aged 16 to 74: Intermediate Occupations: Intermediate Technical and Auxiliary Occupations
+      T060_021:       All Usual Residents Aged 16 to 74: Intermediate Occupations: Intermediate Engineering Occupations
+      T060_022:       All Usual Residents Aged 16 to 74: Small Employers and Own Account Workers
+      T060_023:       All Usual Residents Aged 16 to 74: Small Employers and Own Account Workers: Employers in Small Establishments
+      T060_024:       All Usual Residents Aged 16 to 74: Small Employers and Own Account Workers: Employers in Small Establishments: Employers in Small Establishments in Industry, Commerce, Services Etc.
+      T060_025:       All Usual Residents Aged 16 to 74: Small Employers and Own Account Workers: Employers in Small Establishments: Employers in Small Establishments in Agriculture
+      T060_026:       All Usual Residents Aged 16 to 74: Small Employers and Own Account Workers: Own Account Workers
+      T060_027:       All Usual Residents Aged 16 to 74: Small Employers and Own Account Workers: Own Account Workers: Non-Professional
+      T060_028:       All Usual Residents Aged 16 to 74: Small Employers and Own Account Workers: Own Account Workers: Agriculture
+      T060_029:       All Usual Residents Aged 16 to 74: Lower Supervisory and Technical Occupations
+      T060_030:       All Usual Residents Aged 16 to 74: Lower Supervisory and Technical Occupations: Lower Supervisory Occupations
+      T060_031:       All Usual Residents Aged 16 to 74: Lower Supervisory and Technical Occupations: Lower Technical Occupations
+      T060_032:       All Usual Residents Aged 16 to 74: Lower Supervisory and Technical Occupations: Lower Technical Occupations: Lower Technical Craft Occupations
+      T060_033:       All Usual Residents Aged 16 to 74: Lower Supervisory and Technical Occupations: Lower Technical Occupations: Lower Technical Process Operative Occupations
+      T060_034:       All Usual Residents Aged 16 to 74: Semi-Routine Occupations
+      T060_035:       All Usual Residents Aged 16 to 74: Semi-Routine Occupations: Sales Occupations
+      T060_036:       All Usual Residents Aged 16 to 74: Semi-Routine Occupations: Service Occupations
+      T060_037:       All Usual Residents Aged 16 to 74: Semi-Routine Occupations: Technical Occupations
+      T060_038:       All Usual Residents Aged 16 to 74: Semi-Routine Occupations: Operative Occupations
+      T060_039:       All Usual Residents Aged 16 to 74: Semi-Routine Occupations: Agricultural Occupations
+      T060_040:       All Usual Residents Aged 16 to 74: Semi-Routine Occupations: Clerical Occupations
+      T060_041:       All Usual Residents Aged 16 to 74: Semi-Routine Occupations: Childcare Occupations
+      T060_042:       All Usual Residents Aged 16 to 74: Routine Occupations
+      T060_043:       All Usual Residents Aged 16 to 74: Routine Occupations: Sales and Service Occupations
+      T060_044:       All Usual Residents Aged 16 to 74: Routine Occupations: Production Occupations
+      T060_045:       All Usual Residents Aged 16 to 74: Routine Occupations: Technical Occupations
+      T060_046:       All Usual Residents Aged 16 to 74: Routine Occupations: Operative Occupations
+      T060_047:       All Usual Residents Aged 16 to 74: Routine Occupations: Agricultural Occupations
+      T060_048:       All Usual Residents Aged 16 to 74: Never Worked and Long-Term Unemployed
+      T060_049:       All Usual Residents Aged 16 to 74: Never Worked and Long-Term Unemployed: Never Worked
+      T060_050:       All Usual Residents Aged 16 to 74: Never Worked and Long-Term Unemployed: Long-Term Unemployed
+      T060_051:       All Usual Residents Aged 16 to 74: Full-Time Students
+      T061_001:       All Household Reference Persons Aged 16 to 64
+      T061_002:       Approximated Social Grade Ab (Higher Professional Occupations)
+      T061_003:       Approximated Social Grade C1 (Supervisory Professional Occupations)
+      T061_004:       Approximated Social Grade C2 (Skilled Manual Occupations)
+      T061_005:       Approximated Social Grade De (Semi-Skilled Lowest Grade Occupations)
+      T062_001:       Not Employed All Usual Residents Aged 16 to 74
+      T062_002:       Not Employed All Usual Residents Aged 16 to 74: Last Worked in 2011
+      T062_003:       Not Employed All Usual Residents Aged 16 to 74: Last Worked in 2010
+      T062_004:       Not Employed All Usual Residents Aged 16 to 74: Last Worked in 2009
+      T062_005:       Not Employed All Usual Residents Aged 16 to 74: Last Worked in 2008
+      T062_006:       Not Employed All Usual Residents Aged 16 to 74: Last Worked in 2007
+      T062_007:       Not Employed All Usual Residents Aged 16 to 74: Last Worked in 2006
+      T062_008:       Not Employed All Usual Residents Aged 16 to 74: Last Worked in 2001 - 2005
+      T062_009:       Not Employed All Usual Residents Aged 16 to 74: Last Worked Before 2001
+      T062_010:       Not Employed All Usual Residents Aged 16 to 74: Never Worked
+
+
+
+
+--------------------------------------------------------------------------------
+Citation and Use of Data
+--------------------------------------------------------------------------------
+ 
+All persons are granted a limited license to use this documentation and the
+accompanying data, subject to the following conditions:
+
+* Publications and research reports employing the data
+  must cite it appropriately. The citation should include the following:
+
+	  www.socialexplorer.com
+	  New York City, NY: Social Explorer 2021
+
+
+* Citations should also include the URL for this report:
+
+    http://www.socialexplorer.com/pub/reportdata/HtmlResults.aspx?reportid=R12994373
+
+If you have any questions contact info@socialexplorer.com
