@@ -38,7 +38,7 @@ extractions <- extractions %>%
   filter(Year == 1718)
 ```
 
-Inspecting the data reveals the presence of many `*` symbols under the `Count` column. According to the data provider, the symbol due to privacy concerns, figures less than 6 are "suppressed because of disclosure control. All other subnational figures rounded to the nearest 5." It is unclear how the authors addressed this concern. Totals are given on the nation-wide level, but since all other subnational figures are rounded to the nearest 5, the data is insufficient to even calculate an average of the missing data. For this reason, I will simply impute `*` with 0.
+Inspecting the data reveals the presence of many `*` symbols under the `Count` column. According to the data provider, due to privacy concerns, figures less than 6 are "suppressed because of disclosure control. All other subnational figures rounded to the nearest 5." It is unclear how the authors addressed this concern. Totals are given on the nation-wide level, but since all other subnational figures are rounded to the nearest 5, the data is insufficient to even calculate an average of the missing data. For this reason, I will simply impute `*` with 0.
 
 Briefly let's see how much missing data we are imputing.
 ```{r}
@@ -88,7 +88,7 @@ Some local authorities have simply received new local authority codes; others ha
 
 To make the joins work later on, I have to manually make changes.
 
-For the municipalities which have simply received a new ONS_code, I just the ONS codes in the extractions dataset to match the other two datasets.
+For the municipalities which have simply received a new ONS_code, I adjust the ONS codes in the extractions dataset to match the other two datasets.
 ```{r}
 extractions <- extractions %>%
   mutate(ONS_code = if_else(ONS_code == "E06000057", "E06000048", ONS_code),# this one simply changed codes
@@ -393,7 +393,7 @@ ggsave(
 ```
 
 
-If two of my explanatory variables exhibit a correlation coefficient of over 0.6 or less than -0.6, I chose to include just one of them in my regression models. This helps prevent issues of multilinearity. Specifically, I remove crowded_rate and single_parent_households_ph. I'll perform a more rigorous test for multilinearity shortly.
+If two of my explanatory variables exhibit a correlation coefficient of over 0.6 or less than -0.6, I chose to include just one of them in my regression models. This helps prevent issues of multicollinearity Specifically, I remove crowded_rate and single_parent_households_ph. I'll perform a more rigorous test for multicollinearity shortly.
 
 Below, I fit a linear model to my data.
 ```{r}
@@ -405,7 +405,7 @@ This is what my model looks like:
 summary(m)
 ```
 
-Note that the R-Squared value for the Ordinary Least Squares regression model is 0.1916 This means that the fitted model only explains 19.16% of the variance of child tooth extractions in the UK! My goal is to improve the accuracy of our model by switching to a Geographically Weighted Regression model, which allows for different relationships across space. 
+Note that the R-Squared value for the Ordinary Least Squares regression model is 0.1916. This means that the fitted model only explains 19.16% of the variance of child tooth extractions in the UK! My goal is to improve the accuracy of our model by switching to a Geographically Weighted Regression model, which allows for different relationships across space. 
 
 Before applying a Geographically Weighted Regression model, I first test my independent variables for multicollinearity, using a statistical test known as the Variance Inflation Factor (VIF). For context, when the VIF = 1, no multicollinearity is present. Generally, there is cause for concern when the VIF >= 10. For further reading on Variance Inflation Factors, please see: https://online.stat.psu.edu/stat462/node/180/
 ```{r}
@@ -539,7 +539,7 @@ gwr.map_adapt <- cbind(dentistry, as.matrix(results))
 ```
 
 
-We almost have enough information to make the maps imitating those shown in Broomhead et al's paper. The only thing I have to do before I can make those maps is determine which coefficients are statistically significant. Unfortunately, the authors did not describe how they determined statistical significance and there is no mentio of p-values. I had to do some online research in order to figure out a reasonable methodology, and I ended up applying the methodology presented in section 9.6.7 of this tutorial: https://gdsl-ul.github.io/san/gwr.html.
+We almost have enough information to make the maps imitating those shown in Broomhead et al's paper. The only thing I have to do before I can make those maps is determine which coefficients are statistically significant. Unfortunately, the authors did not describe how they determined statistical significance and there is no mention of p-values. I had to do some online research in order to figure out a reasonable methodology, and I ended up applying the methodology presented in section 9.6.7 of this tutorial: https://gdsl-ul.github.io/san/gwr.html.
 
 1) The standard error for each coefficient at each observations was already calculated by the GWR model.
 2) I calculate the test statistic: t = (estimated coefficient)/SE
@@ -552,6 +552,7 @@ gwr.map_adapt <- gwr.map_adapt %>%
 ```
 
 3) I approximate significance using the t-value. The authors of https://gdsl-ul.github.io/san/gwr.html indicate that I can roughly consider a value to be statistically significant when the absolute value of the t-value is greater than 1.96.
+
 
 I save my derived data for others to reference.
 ```{r}
@@ -595,6 +596,13 @@ tm_shape(gwr.map_adapt) +
             lwd = 0.2)
 ```
 
+I also want to know how many local authorities had statistically significant results
+```{r}
+children_s <- gwr.map_adapt %>%
+  filter(t_pct_child > 1.96 | t_pct_child < -1.96) 
+```
+There are 127 observations in this dataset, so there were statistically significant coefficients for 127 traditional authorities.
+
 ## Foreign Rate
 ```{r}
 tm_shape(gwr.map_adapt) +
@@ -626,6 +634,12 @@ tm_shape(gwr.map_adapt) +
             lwd = 0.2)
 ```
 
+I also want to know how many local authorities had statistically significant results
+```{r}
+foreign_s <- gwr.map_adapt %>%
+  filter(t_foreign_rate > 1.96 | t_foreign_rate < -1.96) 
+```
+There are 131 observations in this dataset, so there were statistically significant coefficients for 131 traditional authorities.
 
 ## Disability Rate
 
@@ -649,7 +663,7 @@ disability_ns <- gwr.map_adapt %>%
 tm_shape(gwr.map_adapt) +
   tm_polygons("severe_disability_rate.1", 
     title="Significant Results",
-    style="quantile",
+    style="jenks",
     border.alpha = .2,
     lwd = 0.2,
     palette="RdYlBu")+
@@ -658,6 +672,13 @@ tm_shape(gwr.map_adapt) +
             border.alpha = .2,
             lwd = 0.2)
 ```
+
+I also want to know how many local authorities had statistically significant results
+```{r}
+disability_s <- gwr.map_adapt %>%
+  filter(t_severe_disability_rate > 1.96 | t_severe_disability_rate < -1.96) 
+```
+There are 96 observations in this dataset, so there were statistically significant coefficients for 96 traditional authorities.
 
 ## Unemployment Rate
  
@@ -690,7 +711,12 @@ tm_shape(gwr.map_adapt) +
             lwd = 0.2)
 ```
                                    
-
+I also want to know how many local authorities had statistically significant results
+```{r}
+unemployed_s <- gwr.map_adapt %>%
+  filter(t_unemployment_rate > 1.96 | t_unemployment_rate < -1.96) 
+```
+There are 30 observations in this dataset, so there were statistically significant coefficients for 30 traditional authorities.
 
                                                     
 ## the Model in General
