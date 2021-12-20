@@ -246,7 +246,7 @@ corrplot<- ggcorrplot(corr_mtx, # input the correlation matrix
            method = "circle")
 ```
 
-![Corrplot](results/formatted-for-report/corrplot.png)
+![Corrplot](formatted-for-report/corrplot.png)
 
 It appears that most of my variables exhibit weak relationships with each other, with a few notable exceptions like crowded_rate & foreign_rate and unemployment_rate & single_parent_households_ph.
 I arbitrarily decide that if two of my explanatory variables exhibit a correlation coefficient of over 0.6 or less than -0.6, I will include just one of them in my regression model.
@@ -305,7 +305,7 @@ linearity_check <- dentistry_nogeom_pivoted %>%
   xlab("Rates")
 ```
 
-![Linearity Check](results/formatted-for-report/linearity_check.png)
+![Linearity Check](formatted-for-report/linearity_check.png)
 
 All of the variables seem to exhibit some line-like linear relationship.
 It's not perfect, but for the purposes of this assignment, we will proceed.
@@ -324,7 +324,7 @@ residual_plot <- ggplot(m_aug, aes(x = .fitted, y = .resid)) +
   ggtitle("Residual Plot")
 ```
 
-![Residual Plot](results/formatted-for-report/residual_plot.png)
+![Residual Plot](formatted-for-report/residual_plot.png)
 
 Since residuals exhibit relatively constant variability along the zero line, this condition is satisfied.
 
@@ -340,7 +340,7 @@ residual_histogram <- ggplot(m_aug, aes(x = .resid)) +
 residual_histogram
 ```
 
-![Residual Histogram](results/formatted-for-report/residual_histogram.png)
+![Residual Histogram](formatted-for-report/residual_histogram.png)
 
 The distribution is slightly skewed right, but it's not terrible.
 Ideally, the residuals would exhibit a more normal distribution, but for the purposes of this assignment I move on to fitting a Geographically Weighted Regression model.
@@ -359,12 +359,12 @@ Geographically Weighted Regression might be a more suitable model for our data, 
 To run a GWR model, one must decide on a spatial kernel: the size of the neighborhood around each point to consider when calculating the model.
 As the following image illustrates, for a given point X, the weight assigned to data points in the local regression decreases the futher you are from point X until it is 0 past the specified spatial kernel.
 
-![Fixed Kernel GWR Visual](results/formatted-for-report/gwr_visual.png)
+![Fixed Kernel GWR Visual](formatted-for-report/gwr_visual.png)
 
 In some cases, a fixed spatial kernel is inappropriate, and it makes more sense to use an adaptive kernel.
 Rather than keeping the maximum distance constant, adaptive kernels keep the number of observations included in the neighborhood constant, as illustrated by the next figure.
 
-![Adaptive Kernel GWR Visual](results/formatted-for-report/adaptive_kernel_gwr.png)
+![Adaptive Kernel GWR Visual](formatted-for-report/adaptive_kernel_gwr.png)
 
 In this case, I opt for an adaptive kernel, because I want to ensure that the model includes sufficient data when generating regression models in both rural and urban areas.
 If I were to use a fixed kernel, then urban areas would include more data in their local regressions and rural areas would include less.
@@ -432,20 +432,20 @@ Lu et al describe how to calculated p-values [in this article](https://www.tandf
 To replicate Broomhead et al's maps, I created choropleth maps using the tmap package, classifying observations using the jenks method centered at 0.
 The code used to generate these maps is included in my replication repository.
 
-![Results for Percent Children](results/formatted-for-report/children-merged.png)
+![Results for Percent Children](formatted-for-report/children-merged.png)
 *Figure 1: Coefficients and their statistical significance for percent children. n = 127 local authorities with statistically significant results.*
 
-![Results for Percent Disability](results/formatted-for-report/disability-merged.png)
+![Results for Percent Disability](formatted-for-report/disability-merged.png)
 *Figure 2: Coefficients and their statistical significance for percent with disability. n = 96 local authorities with statistically significant results.*
 
-![Results for Foreign Rate](results/formatted-for-report/foreign-merged.png)
+![Results for Foreign Rate](formatted-for-report/foreign-merged.png)
 *Figure 3: Coefficients and their statistical significance for percent foreign-born. n = 131 local authorities with statistically significant results.*
 
-![Results for Unemployment Rate](results/formatted-for-report/unemployment-merged.png)
+![Results for Unemployment Rate](formatted-for-report/unemployment-merged.png)
 *Figure 4: Coefficients and their statistical significance for the unemployment rate. n = 30 local authorities with statistically significant results.*
 
 I also created the following maps to illustrate the accuracy of the model's predictions.
-![Results for Dental Extractions](results/formatted-for-report/extractions-fullmerge.png)
+![Results for Dental Extractions](formatted-for-report/extractions-fullmerge.png)
 *Figure 5: Actual extraction rates, predicted extraction rates, and associated R-Squared values.*
 
 
@@ -511,7 +511,7 @@ Perhaps there are other indicators, such as water fluoridation, which demonstrat
 - Lu, Binbin, Paul Harris, Martin Charlton, and Chris Brunsdon. 2014. “The Gwmodel R Package: Further Topics for Exploring Spatial Heterogeneity Using Geographically Weighted Models.” Geo-Spatial Information Science 17 (2): 85–101.
 - Broomhead, T., Rodd, H. D., Baker, S. R., Jones, K., Davies, G., White, S., Wilcox, D., Allen, Z., & Marshman, Z. (2021). National patterns in paediatric hospital admissions for dental extractions in England. Community Dentistry and Oral Epidemiology, 49(4), 322–329. [https://doi.org/10.1111/cdoe.12603](https://doi.org/10.1111/cdoe.12603)
 - Variance Inflation Factor background information: [https://online.stat.psu.edu/stat462/node/180/](https://online.stat.psu.edu/stat462/node/180/)
-- [Handout](results/formatted-for-report/Conditions_for_Linear_Regression.pdf) from my data science class on the conditions for linear regression
+- [Handout](formatted-for-report/Conditions_for_Linear_Regression.pdf) from my data science class on the conditions for linear regression
 - GWR Tutorials:
   - [https://gdsl-ul.github.io/san/gwr.html](https://gdsl-ul.github.io/san/gwr.html)
   - [https://cran.r-project.org/web/packages/spgwr/spgwr.pdf](https://cran.r-project.org/web/packages/spgwr/spgwr.pdf)
